@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dawei Xiao (肖大维) | Theoretical High-Energy Physics</title>
+    <title>Dawei Xiao (肖大维) | Research Log & Profile</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         /* --- Color Variables & Reset --- */
         :root {
-            --color-primary: #0077B6; /* Professional Blue */
-            --color-accent: #E63946; /* Subtle Red Accent */
-            --color-text: #333333;
-            --color-bg-light: #F8F9FA;
+            --color-primary: #003366; /* Deep Academic Blue */
+            --color-accent: #CC0000; /* Subtle Red for highlight */
+            --color-text: #2c3e50;
+            --color-text-mono: #444;
+            --color-bg-light: #FBFBFB;
             --color-bg-card: #FFFFFF;
-            --color-border: #E0E0E0;
-            --font-main: 'Inter', sans-serif;
+            --color-border: #E5E5E5;
+            --color-code-bg: #F0F4F7; /* Light technical background */
+            --font-serif: 'Lora', serif;
+            --font-mono: 'Fira Code', monospace;
         }
 
         * {
@@ -29,167 +32,152 @@
         body {
             background-color: var(--color-bg-light);
             color: var(--color-text);
-            font-family: var(--font-main);
+            font-family: var(--font-serif);
             line-height: 1.6;
             font-size: 16px;
         }
 
-        /* --- Layout Container --- */
+        /* --- Layout Container & Header --- */
         .container {
-            max-width: 1100px;
+            max-width: 1050px;
             margin: 40px auto;
             background-color: var(--color-bg-card);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 40px;
         }
         
-        /* --- Header & Title --- */
         header {
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: 20px;
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: 15px;
             margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
 
-        .header-content h1 {
+        header h1 {
             font-size: 2.5em;
-            color: var(--color-text);
-            margin-bottom: 5px;
-        }
-
-        .header-content h2 {
-            font-size: 1.1em;
             color: var(--color-primary);
             font-weight: 600;
         }
 
-        .header-links a {
-            color: var(--color-text);
-            font-size: 1.2em;
-            margin-left: 20px;
-            transition: color 0.2s;
-        }
-        
-        .header-links a:hover {
-            color: var(--color-accent);
+        header p {
+            font-size: 1.1em;
+            color: #666;
+            margin-top: 5px;
         }
 
-        /* --- Main Grid Layout --- */
+        /* --- Technical Grid Layout --- */
         .content-grid {
             display: grid;
-            grid-template-columns: 3fr 1fr; /* Main Content | Sidebar */
+            grid-template-columns: 3fr 1fr; /* Main Content | Technical Sidebar */
             gap: 40px;
         }
 
-        /* --- Sidebar (Contact) --- */
-        .sidebar {
-            padding-left: 20px;
-            border-left: 1px solid var(--color-border);
-        }
-
-        .sidebar h3 {
-            font-size: 1.2em;
+        /* --- Typography and Headings --- */
+        h3 {
+            font-size: 1.5em;
             color: var(--color-primary);
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-        }
-
-        .contact-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-list li {
-            margin-bottom: 12px;
-            font-size: 0.95em;
-        }
-
-        .contact-list li i {
-            margin-right: 10px;
-            color: var(--color-primary);
-        }
-
-        /* --- Main Content Sections --- */
-        .main-content section {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed var(--color-border);
-        }
-        
-        .main-content section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .main-content h3 {
-            font-size: 1.6em;
-            color: var(--color-primary);
+            margin-top: 30px;
             margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        /* --- Education/Timeline Style --- */
-        .timeline-item {
-            margin-bottom: 25px;
-            padding-left: 15px;
-            border-left: 3px solid var(--color-primary);
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--color-border);
+            font-weight: 600;
         }
         
-        .timeline-item h4 {
-            font-size: 1.1em;
-            margin: 0;
-            color: var(--color-text);
+        .section-separator {
+            margin: 40px 0;
+            border: 0;
+            border-top: 1px dashed var(--color-border);
+        }
+
+        /* --- Code & Technical Boxes --- */
+        .code-block {
+            background-color: var(--color-code-bg);
+            padding: 15px;
+            border-radius: 3px;
+            border-left: 4px solid var(--color-accent);
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            color: var(--color-text-mono);
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block p {
+            margin: 3px 0;
+        }
+        
+        .code-highlight {
+            color: var(--color-accent);
             font-weight: 600;
         }
 
-        .timeline-item p {
-            margin: 3px 0;
-            color: #666;
-            font-size: 0.95em;
-        }
-
-        .timeline-item .year {
-            font-weight: 700;
-            color: var(--color-accent);
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        /* --- Links and Lists --- */
-        a {
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        a:hover {
-            color: var(--color-accent);
-            text-decoration: underline;
-        }
-
-        ul {
+        /* --- Research List (Technical List) --- */
+        .research-list {
             list-style: none;
             padding-left: 0;
         }
-        
+
         .research-list li {
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted var(--color-border);
+            padding-bottom: 8px;
         }
-        
-        .research-list li::before {
-            content: "\f00c"; /* Checkmark icon */
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: var(--color-accent);
+
+        .research-list li i {
             position: absolute;
             left: 0;
-            top: 0;
+            top: 5px;
+            color: var(--color-accent);
+        }
+
+        .research-list li strong {
+            font-family: var(--font-mono);
+            color: var(--color-text-mono);
+        }
+
+        /* --- Technical Sidebar (Contact/CV/Tags) --- */
+        .sidebar {
+            background-color: var(--color-code-bg);
+            padding: 20px;
+            border-radius: 3px;
+            height: fit-content;
+        }
+        
+        .sidebar h4 {
+            font-family: var(--font-mono);
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-size: 1em;
+            text-transform: uppercase;
+        }
+
+        .contact-item {
+            font-family: var(--font-mono);
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+
+        .contact-item i {
+            width: 20px;
+            color: var(--color-accent);
+        }
+        
+        .tag-container {
+            margin-top: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 4px 8px;
+            margin: 3px 3px 3px 0;
+            border-radius: 2px;
+            font-size: 0.75em;
+            font-family: var(--font-mono);
         }
 
         /* --- Footer --- */
@@ -200,29 +188,20 @@
             border-top: 1px solid var(--color-border);
             font-size: 0.85em;
             color: #999;
+            font-family: var(--font-mono);
         }
 
-        /* --- Media Queries (Responsiveness) --- */
-        @media (max-width: 850px) {
+        /* --- Media Queries --- */
+        @media (max-width: 800px) {
             .container {
                 margin: 20px;
                 padding: 20px;
             }
             .content-grid {
-                grid-template-columns: 1fr; /* Stack layout */
+                grid-template-columns: 1fr;
             }
             .sidebar {
                 border-left: none;
-                border-top: 1px solid var(--color-border);
-                padding-left: 0;
-                padding-top: 20px;
-            }
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header-links {
-                margin-top: 15px;
             }
         }
     </style>
@@ -231,99 +210,107 @@
 
 <div class="container">
     <header>
-        <div class="header-content">
-            <h1>Dawei Xiao (肖大维)</h1>
-            <h2>MSc, Theoretical High-Energy Physics</h2>
-        </div>
-        <div class="header-links">
-            <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank" title="Curriculum Vitae"><i class="fas fa-file-pdf"></i> CV</a>
-            <a href="[LINK_TO_YOUR_GITHUB]" target="_blank" title="GitHub Profile"><i class="fab fa-github"></i> GitHub</a>
-        </div>
+        <h1>Dawei Xiao (肖大维, he/him)</h1>
+        <p>MSc Candidate in Theoretical High-Energy Physics | University of Amsterdam</p>
     </header>
 
     <div class="content-grid">
+        
         <div class="main-content">
-            <section>
-                <h3>About Me</h3>
-                <p>I am a second-year Master’s student specializing in **Theoretical High-Energy Physics** at the University of Amsterdam (UvA). My academic path includes an MSc in Physics from King's College London and a BEng in Materials Science and Engineering from NPU/QMUL.</p>
-                <p>My work focuses on the foundational questions of quantum gravity, specifically in the cosmological context of de Sitter spacetime.</p>
+            
+            <section id="profile">
+                <h3>// MODULE_01: PROFILE_OVERVIEW</h3>
+                <p>I am a second-year Master’s student focused on the interface between **quantum gravity and cosmology**. My research utilizes technical methods derived from quantum field theory to analyze the geometry and quantum properties of de Sitter spacetime.</p>
             </section>
-
-            <section>
-                <h3>Research Interests</h3>
-                <p>My interests center on the quantum formulation of cosmology, including:</p>
+            
+            <hr class="section-separator">
+            
+            <section id="research">
+                <h3>// MODULE_02: RESEARCH_PARAMETERS</h3>
+                <div class="code-block">
+                    <p>// PRIMARY_SYSTEM_FOCUS</p>
+                    <p><span class="code-highlight">System.ds_spacetime</span>: Quantum Aspects of de Sitter Geometry</p>
+                </div>
+                
+                <p>Key theoretical parameters under investigation:</p>
                 <ul class="research-list">
-                    <li>No-Boundary Wave Function and its implications for cosmic initial conditions.</li>
-                    <li>Path-Integral Formulations of quantum cosmology.</li>
-                    <li>dS Holography Proposals (e.g., dS/CFT correspondence).</li>
+                    <li><i class="fas fa-microscope"></i> <strong>No-Boundary Wave Function</strong>: Exploring initial conditions and boundary constraints.</li>
+                    <li><i class="fas fa-terminal"></i> <strong>Path-Integral Formulations</strong>: Applying functional integration techniques to quantum cosmology.</li>
+                    <li><i class="fas fa-link"></i> <strong>dS Holography Proposals</strong>: Analyzing dualities between gravitational and boundary theories.</li>
                 </ul>
             </section>
             
-            <section>
-                <h3>Education</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="year">2024–2026</span>
-                        <h4>MSc in Physics and Astronomy</h4>
-                        <p>University of Amsterdam (UvA)</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="year">2022–2023</span>
-                        <h4>MSc in Physics</h4>
-                        <p>King's College London (KCL)</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="year">2018–2022</span>
-                        <h4>BEng, Material Science and Engineering</h4>
-                        <p>NPU/QMUL (QMES Joint Program)</p>
-                    </div>
+            <hr class="section-separator">
+
+            <section id="resources">
+                <h3>// MODULE_03: TECHNICAL_RESOURCES</h3>
+                <p>Access points for notes and technical implementations:</p>
+                
+                <div class="code-block">
+                    <p><span class="code-highlight">FUNCTION</span>: QFT_Notes_Draft()</p>
+                    <p>  <span class="code-highlight">STATUS</span>: Draft (Covering Selected Topics)</p>
+                    <p>  <span class="code-highlight">LOCATION</span>: [<a href="[LINK_TO_QFT_NOTES]" target="_blank">View File</a>]</p>
+                </div>
+
+                <div class="code-block">
+                    <p><span class="code-highlight">ALGORITHM</span>: NewmanJanisAlgorithm.py</p>
+                    <p>  <span class="code-highlight">PURPOSE</span>: Generating Kerr-like metrics from seed solutions.</p>
+                    <p>  <span class="code-highlight">LOCATION</span>: [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">View Repository</a>]</p>
                 </div>
             </section>
             
-            <section>
-                <h3>Notes & Projects</h3>
-                <p>Key academic resources and projects:</p>
-                <ul>
-                    <li><i class="fas fa-file-alt"></i> Quantum Field Theory Note (Draft Version—Covering Selected Topics) [<a href="[LINK_TO_QFT_NOTES]" target="_blank">Access Draft</a>]</li>
-                    <li><i class="fas fa-code"></i> Newman-Janis Algorithm Implementation/Notes [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">Access Notes</a>]</li>
-                </ul>
+            <hr class="section-separator">
+
+            <section id="education">
+                <h3>// MODULE_04: ACADEMIC_LOG</h3>
+                <p>— Acquisition Log —</p>
+                <div class="code-block" style="border-left-color: var(--color-primary);">
+                    <p><span class="code-highlight">2024–2026</span> | MSc, Physics and Astronomy | University of Amsterdam (UvA)</p>
+                    <p><span class="code-highlight">2022–2023</span> | MSc, Physics | King's College London (KCL)</p>
+                    <p><span class="code-highlight">2018–2022</span> | BEng, Material Science and Engineering | NPU/QMUL</p>
+                </div>
             </section>
         </div>
 
         <div class="sidebar">
-            <section style="border-bottom: none;">
-                <h3>Contact</h3>
+            <section>
+                <h4>// CONTACT_INTERFACE</h4>
                 <ul class="contact-list">
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a> (Primary)</li>
-                    <li><i class="fas fa-university"></i> <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a> (UvA)</li>
-                </ul>
-            </section>
-
-            <section style="border-bottom: none;">
-                <h3>Personal Interests</h3>
-                <p style="font-size: 0.9em;">
-                    Outside of physics, I enjoy:
-                </p>
-                <ul class="contact-list">
-                    <li><i class="fas fa-sword"></i> Japanese Sengoku history</li>
-                    <li><i class="fas fa-futbol"></i> Manchester United (Football Fan)</li>
-                    <li><i class="fas fa-gamepad"></i> RTS Games (Age of Empires IV)</li>
-                    <li><i class="fas fa-music"></i> Light Music (Composer: Xeuphoria)</li>
+                    <li class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
+                    <li class="contact-item"><i class="fas fa-university"></i> <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
+                    <li class="contact-item"><i class="fas fa-file-pdf"></i> <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank">Download CV (PDF)</a></li>
+                    <li class="contact-item"><i class="fab fa-github"></i> <a href="[LINK_TO_YOUR_GITHUB]" target="_blank">GitHub Profile</a></li>
                 </ul>
             </section>
             
-            <section style="border-bottom: none;">
-                <h3>Online Profiles</h3>
+            <hr style="border-color: #D0D0D0; margin: 20px 0;">
+
+            <section>
+                <h4>// EXTERNAL_VALIDATION</h4>
                 <ul class="contact-list">
-                    <li><i class="fab fa-stack-exchange"></i> <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
-                    <li><i class="fab fa-zhihu"></i> <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">知乎 (Zhihu)</a></li>
+                    <li class="contact-item"><i class="fab fa-stack-exchange"></i> <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
+                    <li class="contact-item"><i class="fab fa-zhihu"></i> <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">知乎 (Zhihu)</a></li>
                 </ul>
+            </section>
+
+            <hr style="border-color: #D0D0D0; margin: 20px 0;">
+            
+            <section>
+                <h4>// PERSONAL_TAGS</h4>
+                <div class="tag-container">
+                    <span class="tag">#THEORY_PHYSICS</span>
+                    <span class="tag">#QUANTUM_COSMOLOGY</span>
+                    <span class="tag">#RTS_GAMING</span>
+                    <span class="tag">#SENGOKU_HISTORY</span>
+                    <span class="tag">#MAN_UTD_FAN</span>
+                    <span class="tag">#Xeuphoria</span>
+                </div>
             </section>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Dawei Xiao. Built with clean HTML/CSS.</p>
+        <p>CONSOLE_OUTPUT: Profile rendered successfully. Last updated: [DATE].</p>
     </footer>
 </div>
 
