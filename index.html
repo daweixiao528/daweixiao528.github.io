@@ -3,109 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dawei Xiao (肖大维) | Theoretical High-Energy Physics</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="https://via.placeholder.com/16x16?text=DX" type="image/x-icon">
+    <title>DAWEI XIAO // Theoretical High-Energy Physics</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Terminal Style CSS --- */
+        :root {
+            --bg-color: #0d1117; /* GitHub Dark Background */
+            --text-color: #58ff87; /* Neon Green/CRT Green */
+            --accent-color: #4a86ff; /* Blue for Links */
+            --font: 'Fira Code', 'Lucida Console', Monaco, monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font);
+            margin: 0;
+            padding: 40px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- Headings and Titles --- */
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d1d8e0; /* Lighter color for headings */
+        }
+        h1 { font-size: 1.8em; color: var(--text-color); }
+        h2 { font-size: 1.3em; margin-top: 2em; }
+        h3 { font-size: 1.1em; margin-top: 1.5em; }
+
+        /* --- Links and Interactive Elements --- */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: #ff99e6; /* Bright Pink on hover */
+            text-decoration: underline;
+        }
+
+        /* --- Divider and Prompt --- */
+        .divider {
+            color: #999;
+            margin: 20px 0;
+            opacity: 0.5;
+        }
+        
+        .prompt {
+            color: #ffcc00; /* Yellow prompt */
+            margin-right: 8px;
+        }
+
+        /* --- Command Line Simulation --- */
+        .cmd-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .output {
+            margin-bottom: 20px;
+            padding-left: 15px;
+        }
+
+        /* --- Code Block Styling for Research --- */
+        .code-block {
+            background-color: rgba(100, 255, 100, 0.05); /* Very subtle green tint */
+            padding: 15px;
+            border-left: 3px solid var(--text-color);
+            white-space: pre-wrap;
+        }
+        .code-block p { margin: 5px 0; }
+        .comment { color: #888; }
+        .keyword { color: #ffcc00; } /* Highlight keywords */
+
+        /* --- Typewriter Effect CSS --- */
+        .typewriter h1 {
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            border-right: .15em solid var(--text-color); /* The cursor */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .1em; /* Adjust as needed */
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+            width: 0; /* Initial width */
+        }
+        /* The typing animation */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-color); }
+        }
+
+        /* --- Lists --- */
+        ul {
+            list-style-type: '>';
+            padding-left: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* --- Contact List --- */
+        .contact-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .contact-list li {
+            margin-bottom: 8px;
+        }
+        .contact-list span {
+            color: #fff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" aria-label="Toggle dark mode" />
-            <div class="slider round"></div>
-        </label>
-        <span class="mode-label">Dark Mode</span>
+
+<div class="container">
+
+    <div class="typewriter">
+        <h1>ACCESS GRANTED: DAWEI XIAO (THEO. PHYSICIST)</h1>
     </div>
 
-    <div class="container">
-        <header class="fade-in">
-            <h1 class="main-title">Dawei Xiao (肖大维, he/him)</h1>
-            <p class="subtitle">MSc Student in Theoretical High-Energy Physics</p>
-            <p class="affiliation">University of Amsterdam (UvA), The Netherlands</p>
-        </header>
+    <div class="divider">$$$ --- [ SYSTEM.INFO ] ------------------------------------------------------------- $$$</div>
 
-        <main class="content-wrapper">
-            
-            <aside class="sidebar fade-in delay-1">
-                <section class="profile-card">
-                    <img src="https://via.placeholder.com/150x150?text=Dawei+Xiao" alt="Dawei Xiao Profile Picture" class="profile-pic">
-                    <h3>Connect with Dawei</h3>
-                    <div class="social-links">
-                        <a href="mailto:xiaodawei528@gmail.com" target="_blank" aria-label="Email Primary"><i class="fas fa-envelope"></i></a>
-                        <a href="mailto:david.xiao@student.uva.nl" target="_blank" aria-label="Email UvA"><i class="fas fa-university"></i></a>
-                        <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank" aria-label="Download CV"><i class="fas fa-file-pdf"></i></a>
-                        <a href="[LINK_TO_YOUR_GITHUB]" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-                        <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank" aria-label="Stack Exchange Profile"><i class="fab fa-stack-exchange"></i></a>
-                        <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank" aria-label="Zhihu Profile"><i class="fab fa-zhihu"></i></a>
-                    </div>
-                </section>
-
-                <section class="personal-interests card fade-in delay-2">
-                    <h3><i class="fas fa-lightbulb"></i> Beyond Academics</h3>
-                    <p>Enthusiast of Japanese Sengoku history. Passionate **Manchester United** fan. Enjoys **RTS games** (Age of Empires IV) and the ambient soundscapes of **Xeuphoria**.</p>
-                </section>
-            </aside>
-
-            <div class="main-content">
-                <section class="about card fade-in delay-3">
-                    <h3><i class="fas fa-user-graduate"></i> About Me</h3>
-                    <p>I am a second-year Master’s student specializing in **Theoretical High-Energy Physics** at the University of Amsterdam (UvA). My academic background includes an MSc in Physics from King's College London and a BEng in Materials Science and Engineering from the NPU/QMUL Joint Program (QMES).</p>
-                    <p>My core academic pursuit lies in unraveling the foundational questions at the intersection of quantum gravity and cosmology, seeking a deeper understanding of the quantum nature of spacetime.</p>
-                </section>
-
-                <section class="research card fade-in delay-4">
-                    <h3><i class="fas fa-atom"></i> Research Interests</h3>
-                    <p>My research is primarily centered on the **quantum aspects of de Sitter spacetime**. Key areas of investigation include:</p>
-                    <ul class="fancy-list">
-                        <li><i class="fas fa-chevron-right"></i> **No-Boundary Wave Function**</li>
-                        <li><i class="fas fa-chevron-right"></i> **Path-Integral Formulations of Quantum Cosmology**</li>
-                        <li><i class="fas fa-chevron-right"></i> **dS Holography Proposals** (e.g., dS/CFT correspondence)</li>
-                    </ul>
-                </section>
-
-                <section class="education card fade-in delay-5">
-                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="year">2024 – 2026</span>
-                            <div class="timeline-content">
-                                <h4>MSc in Physics and Astronomy</h4>
-                                <p><em>(Theoretical High-Energy Physics)</em></p>
-                                <p>University of Amsterdam (UvA), The Netherlands</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="year">2022 – 2023</span>
-                            <div class="timeline-content">
-                                <h4>MSc in Physics</h4>
-                                <p>King's College London (KCL), United Kingdom</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="year">2018 – 2022</span>
-                            <div class="timeline-content">
-                                <h4>BEng, Material Science and Engineering</h4>
-                                <p>Northwestern Polytechnical University (NPU) / QMUL, China/UK (QMES Joint Program)</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section class="notes-projects card fade-in delay-6">
-                    <h3><i class="fas fa-book"></i> Notes & Resources</h3>
-                    <ul class="fancy-list">
-                        <li><i class="fas fa-file-alt"></i> **Quantum Field Theory Note** (Draft Version—Covering Only Selected Topics) [<a href="[LINK_TO_QFT_NOTES]" target="_blank">Access Draft <i class="fas fa-external-link-alt"></i></a>]</li>
-                        <li><i class="fas fa-code"></i> **Newman-Janis Algorithm** Implementation/Notes [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">Access Notes <i class="fas fa-external-link-alt"></i></a>]</li>
-                    </ul>
-                </section>
-            </div>
-        </main>
-
-        <footer class="fade-in delay-7">
-            <p>&copy; 2025 Dawei Xiao. All rights reserved. Last updated: <span id="last-updated"></span></p>
-        </footer>
+    <div class="cmd-line">
+        <span class="prompt">guest@uva-research:~$</span> cat ./profile/bio.txt
     </div>
-    <script src="script.js"></script>
+    <div class="output">
+        <p>Dawei Xiao (肖大维, he/him)</p>
+        <p>Current Status: Second-year MSc student in **Theoretical High-Energy Physics** at the University of Amsterdam (UvA).</p>
+        <p>Primary Focus: Quantum aspects of de Sitter spacetime, path-integral cosmology, and dS holography.</p>
+        <p>Secondary Interests: Japanese Sengoku history, Manchester United (Football), RTS games (Age of Empires IV), Ambient Music (Xeuphoria).</p>
+    </div>
+
+    <h2><span class="prompt">#</span> Education.History</h2>
+    <div class="code-block">
+<p class="comment">// 0x0001: Graduate Research Phase</p>
+<p><span class="keyword">record</span>("MSc Physics and Astronomy", {</p>
+<p>  duration: "2024-2026",</p>
+<p>  institution: "University of Amsterdam (UvA)",</p>
+<p>  specialization: "Theoretical High-Energy Physics"</p>
+<p>});</p>
+<p><span class="keyword">record</span>("MSc Physics", {</p>
+<p>  duration: "2022-2023",</p>
+<p>  institution: "King's College London (KCL)"</p>
+<p>});</p>
+<p class="comment">// 0x0002: Undergraduate Foundation</p>
+<p><span class="keyword">record</span>("BEng Material Science and Engineering", {</p>
+<p>  duration: "2018-2022",</p>
+<p>  institution: "NPU/QMUL (QMES Joint Program)"</p>
+<p>});</p>
+    </div>
+    
+    <h2><span class="prompt">#</span> Research.Focus</h2>
+    <div class="cmd-line">
+        <span class="prompt">guest@uva-research:~$</span> query_focus
+    </div>
+    <div class="output">
+        My research broadly concerns the quantum aspects of de Sitter spacetime, with particular focus on:
+        <ul>
+            <li>The no-boundary wave function</li>
+            <li>Path-integral formulations of quantum cosmology</li>
+            <li>dS holography proposals (dS/CFT)</li>
+        </ul>
+    </div>
+
+    <h2><span class="prompt">#</span> Resources.Available</h2>
+    <div class="cmd-line">
+        <span class="prompt">guest@uva-research:~$</span> ls -l ./notes
+    </div>
+    <div class="output">
+        <ul class="contact-list">
+            <li><span>[DOC]</span> Quantum Field Theory Note (Draft) <a href="[LINK_TO_QFT_NOTES]" target="_blank">[ View ]</a></li>
+            <li><span>[CODE]</span> Newman-Janis Algorithm Implementation <a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">[ View ]</a></li>
+            <li><span>[CV]</span> Curriculum Vitae <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank">[ Download ]</a></li>
+        </ul>
+    </div>
+
+    <h2><span class="prompt">#</span> Contact.Channels</h2>
+    <div class="cmd-line">
+        <span class="prompt">guest@uva-research:~$</span> echo $CONTACT_INFO
+    </div>
+    <div class="output">
+        <ul class="contact-list">
+            <li><span>[MAIL]</span> Primary: <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
+            <li><span>[MAIL]</span> UvA: <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
+            <li><span>[CODE]</span> GitHub: <a href="[LINK_TO_YOUR_GITHUB]" target="_blank">daweixiao528</a></li>
+            <li><span>[Q&A]</span> Stack Exchange: <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">[ Profile ]</a></li>
+            <li><span>[CN]</span> 知乎 (Zhihu): <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">[ Profile ]</a></li>
+        </ul>
+    </div>
+
+    <div class="divider">$$$ --- [ END OF FILE ] ------------------------------------------------------------- $$$</div>
+
+</div>
+
 </body>
 </html>
