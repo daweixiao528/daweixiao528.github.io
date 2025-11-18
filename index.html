@@ -3,220 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAWEI XIAO // Theoretical High-Energy Physics</title>
+    <title>DAWEI XIAO // THEORETICAL FIELD ENGINEER</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        /* --- Terminal Style CSS --- */
+        /* --- Color Variables & Reset --- */
         :root {
-            --bg-color: #0d1117; /* GitHub Dark Background */
-            --text-color: #58ff87; /* Neon Green/CRT Green */
-            --accent-color: #4a86ff; /* Blue for Links */
-            --font: 'Fira Code', 'Lucida Console', Monaco, monospace;
+            --bg-dark: #121212;
+            --text-light: #F0F0F0;
+            --primary-neon: #00FFFF; /* Electric Cyan */
+            --secondary-neon: #FF00FF; /* Magenta */
+            --card-dark: #1e1e1e;
+            --border-glow: rgba(0, 255, 255, 0.4);
+            --font-main: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font);
-            margin: 0;
-            padding: 40px;
-            line-height: 1.5;
-            font-size: 14px;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* --- Global Structure --- */
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* --- Headings and Titles --- */
-        h1, h2, h3 {
-            font-weight: 600;
-            margin-top: 2.5em;
-            margin-bottom: 0.5em;
+        section {
+            padding: 100px 0;
+            min-height: 100vh; /* Make sections full height for impact */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--card-dark);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--primary-neon);
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #d1d8e0; /* Lighter color for headings */
+            text-shadow: 0 0 5px var(--border-glow);
         }
-        h1 { font-size: 1.8em; color: var(--text-color); }
-        h2 { font-size: 1.3em; margin-top: 2em; }
-        h3 { font-size: 1.1em; margin-top: 1.5em; }
 
-        /* --- Links and Interactive Elements --- */
-        a {
-            color: var(--accent-color);
+        .nav-links a {
+            color: var(--text-light);
             text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        a:hover {
-            color: #ff99e6; /* Bright Pink on hover */
-            text-decoration: underline;
+            margin-left: 30px;
+            font-weight: 600;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
-        /* --- Divider and Prompt --- */
-        .divider {
-            color: #999;
-            margin: 20px 0;
-            opacity: 0.5;
+        .nav-links a:hover {
+            color: var(--primary-neon);
+            text-shadow: 0 0 8px var(--border-glow);
+        }
+
+        /* --- HERO Section (The Coolest Part) --- */
+        #hero {
+            position: relative;
+            padding-top: 150px;
+            min-height: 100vh;
         }
         
-        .prompt {
-            color: #ffcc00; /* Yellow prompt */
-            margin-right: 8px;
-        }
-
-        /* --- Command Line Simulation --- */
-        .cmd-line {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-        .output {
+        .hero-title {
+            font-size: 5vw; /* Responsive font size */
+            font-weight: 800;
+            line-height: 1.1;
             margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .neon-text {
+            color: var(--primary-neon);
+            text-shadow: 0 0 10px var(--border-glow), 0 0 20px var(--border-glow);
+            transition: color 0.5s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #ccc;
+            margin-bottom: 40px;
+            border-left: 3px solid var(--secondary-neon);
             padding-left: 15px;
         }
 
-        /* --- Code Block Styling for Research --- */
-        .code-block {
-            background-color: rgba(100, 255, 100, 0.05); /* Very subtle green tint */
-            padding: 15px;
-            border-left: 3px solid var(--text-color);
-            white-space: pre-wrap;
-        }
-        .code-block p { margin: 5px 0; }
-        .comment { color: #888; }
-        .keyword { color: #ffcc00; } /* Highlight keywords */
-
-        /* --- Typewriter Effect CSS --- */
-        .typewriter h1 {
-            overflow: hidden; /* Ensures the content is not revealed until the animation */
-            border-right: .15em solid var(--text-color); /* The cursor */
-            white-space: nowrap; /* Keeps the content on a single line */
-            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-            letter-spacing: .1em; /* Adjust as needed */
-            animation: 
-                typing 3.5s steps(40, end),
-                blink-caret .75s step-end infinite;
-            width: 0; /* Initial width */
-        }
-        /* The typing animation */
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        /* The typewriter cursor effect */
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--text-color); }
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-neon);
+            color: var(--bg-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--primary-neon);
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
         }
 
-        /* --- Lists --- */
-        ul {
-            list-style-type: '>';
-            padding-left: 15px;
-        }
-        li {
-            margin-bottom: 5px;
+        .cta-button:hover {
+            background: var(--secondary-neon);
+            box-shadow: 0 0 15px var(--secondary-neon);
+            transform: scale(1.05);
         }
 
-        /* --- Contact List --- */
-        .contact-list {
-            list-style-type: none;
-            padding-left: 0;
+        /* --- General Section Style --- */
+        .section-header {
+            font-size: 3em;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            color: var(--text-light);
+            border-bottom: 4px solid var(--secondary-neon);
+            padding-bottom: 5px;
         }
-        .contact-list li {
-            margin-bottom: 8px;
+
+        /* --- GRID Layout for Skills/Projects --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-        .contact-list span {
-            color: #fff;
-            font-weight: bold;
-            margin-right: 10px;
+
+        .skill-card {
+            background: var(--card-dark);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--card-dark);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .skill-card:hover {
+            border-color: var(--primary-neon);
+            box-shadow: 0 0 20px var(--border-glow);
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2em;
+            color: var(--primary-neon);
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px var(--border-glow);
+        }
+
+        .skill-card h4 {
+            font-size: 1.2em;
+            color: var(--secondary-neon);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* --- Hobbies/VIBES Section --- */
+        #vibes p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .vibe-tag {
+            display: inline-block;
+            background: var(--card-dark);
+            color: var(--primary-neon);
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            border: 1px solid var(--primary-neon);
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .vibe-tag:hover {
+            background: var(--primary-neon);
+            color: var(--bg-dark);
+        }
+
+        /* --- Contact Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--card-dark);
+            font-size: 0.9em;
+        }
+
+        .contact-links a {
+            color: var(--text-light);
+            font-size: 1.5em;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: var(--secondary-neon);
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 8vw;
+            }
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
+            nav .container {
+                flex-direction: column;
+            }
+            .nav-links {
+                margin-top: 10px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+            .section-header {
+                font-size: 2.5em;
+            }
+            section {
+                padding: 80px 0;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <nav>
+        <div class="container">
+            <div class="logo">D.Xiao</div>
+            <div class="nav-links">
+                <a href="#hero">HOME</a>
+                <a href="#expertise">SKILLS</a>
+                <a href="#education">LOG</a>
+                <a href="#vibes">VIBES</a>
+                <a href="mailto:xiaodawei528@gmail.com">CONTACT</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="typewriter">
-        <h1>ACCESS GRANTED: DAWEI XIAO (THEO. PHYSICIST)</h1>
-    </div>
+    <section id="hero" class="container">
+        <h1 class="hero-title">
+            I AM <span class="neon-text">DAWEI XIAO</span>.<br>
+            <span style="font-size: 0.8em; font-weight: 600; color: #ccc;">THEORETICAL FIELD ENGINEER.</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+            Second-year MSc specializing in Quantum Gravity & Cosmology at UvA. My work interfaces with the most abstract aspects of de Sitter spacetime and path-integral formulations.
+        </p>
+        
+        <a href="#expertise" class="cta-button">View Core Expertise <i class="fas fa-arrow-down"></i></a>
+    </section>
 
-    <div class="divider">$$$ --- [ SYSTEM.INFO ] ------------------------------------------------------------- $$$</div>
+    <section id="expertise" class="container">
+        <h2 class="section-header">CORE EXPERTISE</h2>
+        
+        <div class="grid-3">
+            <div class="skill-card">
+                <i class="fas fa-infinity"></i>
+                <h4>No-Boundary Wave Function</h4>
+                <p>Focus on foundational quantum cosmology proposals concerning the initial conditions of the universe and wave function description.</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-calculator"></i>
+                <h4>Path-Integral Methods</h4>
+                <p>Application of path-integral formulations to tackle complex problems in quantum cosmology and gravitational fields.</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-cubes"></i>
+                <h4>dS Holography Proposals</h4>
+                <p>Exploring the potential duality between quantum gravity in de Sitter space and conformal field theories (dS/CFT).</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-file-code"></i>
+                <h4>QFT & Algorithms</h4>
+                <p>Deep dive into Newman-Janis Algorithm and selective topics in Quantum Field Theory. <a href="[LINK_TO_QFT_NOTES]" target="_blank">View Notes</a></p>
+            </div>
+        </div>
+    </section>
 
-    <div class="cmd-line">
-        <span class="prompt">guest@uva-research:~$</span> cat ./profile/bio.txt
-    </div>
-    <div class="output">
-        <p>Dawei Xiao (肖大维, he/him)</p>
-        <p>Current Status: Second-year MSc student in **Theoretical High-Energy Physics** at the University of Amsterdam (UvA).</p>
-        <p>Primary Focus: Quantum aspects of de Sitter spacetime, path-integral cosmology, and dS holography.</p>
-        <p>Secondary Interests: Japanese Sengoku history, Manchester United (Football), RTS games (Age of Empires IV), Ambient Music (Xeuphoria).</p>
-    </div>
+    <section id="education" class="container">
+        <h2 class="section-header">ACADEMIC LOG</h2>
+        
+        <p style="font-size: 1.1em; max-width: 800px; margin-bottom: 40px;">
+            A history of synthesis: from fundamental materials science to advanced theoretical physics.
+        </p>
+        
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 25px; border-left: 3px solid var(--primary-neon); padding-left: 15px;">
+                <span style="color: var(--secondary-neon); font-weight: 600;">2024–2026:</span> MSc in Physics and Astronomy, University of Amsterdam (UvA)
+            </li>
+            <li style="margin-bottom: 25px; border-left: 3px solid var(--primary-neon); padding-left: 15px;">
+                <span style="color: var(--secondary-neon); font-weight: 600;">2022–2023:</span> MSc in Physics, King's College London (KCL)
+            </li>
+            <li style="margin-bottom: 25px; border-left: 3px solid var(--primary-neon); padding-left: 15px;">
+                <span style="color: var(--secondary-neon); font-weight: 600;">2018–2022:</span> BEng, Material Science and Engineering, NPU/QMUL (QMES)
+            </li>
+        </ul>
+    </section>
 
-    <h2><span class="prompt">#</span> Education.History</h2>
-    <div class="code-block">
-<p class="comment">// 0x0001: Graduate Research Phase</p>
-<p><span class="keyword">record</span>("MSc Physics and Astronomy", {</p>
-<p>  duration: "2024-2026",</p>
-<p>  institution: "University of Amsterdam (UvA)",</p>
-<p>  specialization: "Theoretical High-Energy Physics"</p>
-<p>});</p>
-<p><span class="keyword">record</span>("MSc Physics", {</p>
-<p>  duration: "2022-2023",</p>
-<p>  institution: "King's College London (KCL)"</p>
-<p>});</p>
-<p class="comment">// 0x0002: Undergraduate Foundation</p>
-<p><span class="keyword">record</span>("BEng Material Science and Engineering", {</p>
-<p>  duration: "2018-2022",</p>
-<p>  institution: "NPU/QMUL (QMES Joint Program)"</p>
-<p>});</p>
-    </div>
+    <section id="vibes" class="container">
+        <h2 class="section-header">PERSONAL VIBES</h2>
+        
+        <p>
+            When the simulation pauses, my time is spent on analog and digital history, strategy, and sound.
+        </p>
+        
+        <div style="margin-top: 20px;">
+            <div class="vibe-tag">Japanese Sengoku History</div>
+            <div class="vibe-tag">Manchester United Fan</div>
+            <div class="vibe-tag">RTS Gaming (AoE IV)</div>
+            <div class="vibe-tag">Ambient Sound Design (Xeuphoria)</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contact-links">
+            <a href="mailto:xiaodawei528@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank" aria-label="CV"><i class="fas fa-file-pdf"></i></a>
+            <a href="[LINK_TO_YOUR_GITHUB]" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank" aria-label="Stack Exchange"><i class="fab fa-stack-exchange"></i></a>
+            <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank" aria-label="Zhihu"><i class="fab fa-zhihu"></i></a>
+        </div>
+        <p style="margin-top: 15px;">&copy; 2025 DAWEI XIAO. All rights reserved. | Access Code: dx528</p>
+    </footer>
     
-    <h2><span class="prompt">#</span> Research.Focus</h2>
-    <div class="cmd-line">
-        <span class="prompt">guest@uva-research:~$</span> query_focus
-    </div>
-    <div class="output">
-        My research broadly concerns the quantum aspects of de Sitter spacetime, with particular focus on:
-        <ul>
-            <li>The no-boundary wave function</li>
-            <li>Path-integral formulations of quantum cosmology</li>
-            <li>dS holography proposals (dS/CFT)</li>
-        </ul>
-    </div>
-
-    <h2><span class="prompt">#</span> Resources.Available</h2>
-    <div class="cmd-line">
-        <span class="prompt">guest@uva-research:~$</span> ls -l ./notes
-    </div>
-    <div class="output">
-        <ul class="contact-list">
-            <li><span>[DOC]</span> Quantum Field Theory Note (Draft) <a href="[LINK_TO_QFT_NOTES]" target="_blank">[ View ]</a></li>
-            <li><span>[CODE]</span> Newman-Janis Algorithm Implementation <a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">[ View ]</a></li>
-            <li><span>[CV]</span> Curriculum Vitae <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank">[ Download ]</a></li>
-        </ul>
-    </div>
-
-    <h2><span class="prompt">#</span> Contact.Channels</h2>
-    <div class="cmd-line">
-        <span class="prompt">guest@uva-research:~$</span> echo $CONTACT_INFO
-    </div>
-    <div class="output">
-        <ul class="contact-list">
-            <li><span>[MAIL]</span> Primary: <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
-            <li><span>[MAIL]</span> UvA: <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
-            <li><span>[CODE]</span> GitHub: <a href="[LINK_TO_YOUR_GITHUB]" target="_blank">daweixiao528</a></li>
-            <li><span>[Q&A]</span> Stack Exchange: <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">[ Profile ]</a></li>
-            <li><span>[CN]</span> 知乎 (Zhihu): <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">[ Profile ]</a></li>
-        </ul>
-    </div>
-
-    <div class="divider">$$$ --- [ END OF FILE ] ------------------------------------------------------------- $$$</div>
-
-</div>
-
 </body>
 </html>
