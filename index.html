@@ -3,191 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dawei Xiao | Research Gallery</title>
+    <title>Dawei Xiao (肖大维) | Theoretical Physics Profile</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
+        /* --- Color Variables & Reset --- */
         :root {
-            --color-bg-dark: #1C2833; /* Dark Slate Gray */
-            --color-primary: #3498DB; /* Blue */
-            --color-accent: #E74C3C; /* Red */
-            --color-text: #ECF0F1; /* Light Gray */
-            --color-card: #2C3E50; /* Darker Card */
-            --font-main: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
+            --color-primary: #0077B6; /* Professional Blue */
+            --color-accent: #00B4D8; /* Lighter Accent */
+            --color-text: #212529; /* Charcoal Black */
+            --color-bg-light: #F8F9FA;
+            --color-bg-card: #FFFFFF;
+            --color-border: #E9ECEF;
+            --font-main: 'Inter', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            background-color: var(--color-bg-dark);
+            background-color: var(--color-bg-light);
             color: var(--color-text);
             font-family: var(--font-main);
             line-height: 1.6;
-            padding-bottom: 80px;
+            font-size: 16px;
         }
 
+        /* --- Main Layout Container --- */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- Header / Hero --- */
-        #header-hero {
-            text-align: center;
-            padding: 80px 0 50px;
+            max-width: 1000px;
+            margin: 50px auto;
+            background-color: var(--color-bg-card);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            padding: 40px;
         }
         
-        #header-hero h1 {
-            font-size: 4em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--color-primary);
+        /* --- Header & Title --- */
+        header {
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
         }
 
-        #header-hero p {
-            font-size: 1.2em;
+        header h1 {
+            font-size: 2.2em;
             color: var(--color-text);
+            margin-bottom: 5px;
         }
-        
-        /* --- Gallery Grid --- */
-        .gallery-grid {
+
+        header p {
+            font-size: 1.1em;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        /* --- Main Grid Layout --- */
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 3fr 1fr; /* Main Content | Sidebar */
             gap: 40px;
-            margin-top: 40px;
         }
 
-        .gallery-card {
-            background: var(--color-card);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.4s ease-out;
-            cursor: pointer;
-            
-            /* Enable 3D transform on hover */
-            transform-style: preserve-3d;
+        /* --- Sidebar (Contact) --- */
+        .sidebar {
+            padding-left: 20px;
+            border-left: 1px solid var(--color-border);
         }
 
-        /* 3D Immersive Effect on Hover */
-        .gallery-card:hover {
-            transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.03);
+        .sidebar h3 {
+            font-size: 1.1em;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-accent);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
-        .card-image {
-            height: 200px;
-            background-color: var(--color-primary); /* Placeholder for actual image */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3em;
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            font-size: 0.95em;
         }
 
-        .card-content {
-            padding: 25px;
-        }
-        
-        .card-content h3 {
-            font-size: 1.5em;
-            color: var(--color-accent);
+        .contact-list li {
             margin-bottom: 10px;
         }
-        
-        .card-tag {
-            display: inline-block;
-            background: var(--color-bg-dark);
-            font-size: 0.8em;
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin-top: 10px;
+
+        .contact-list li i {
+            margin-right: 10px;
+            color: var(--color-accent);
+        }
+
+        /* --- Main Content Sections --- */
+        .main-content section {
+            margin-bottom: 35px;
+        }
+
+        .main-content h3 {
+            font-size: 1.4em;
+            color: var(--color-text);
+            margin-bottom: 15px;
+            font-weight: 700;
         }
         
-        /* --- Contact Footer --- */
+        /* --- Education/Timeline Style --- */
+        .timeline-item {
+            margin-bottom: 20px;
+        }
+        
+        .timeline-item h4 {
+            font-size: 1em;
+            margin: 0;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            margin: 3px 0;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        /* --- Links and Lists --- */
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        
+        ul.simple-list {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        
+        ul.simple-list li {
+            margin-bottom: 5px;
+        }
+        
+        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid var(--color-card);
-            margin-top: 60px;
+            padding-top: 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.85em;
+            color: #999;
         }
-        
-        .contact-icon a {
-            color: var(--color-text);
-            font-size: 1.5em;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-        
-        .contact-icon a:hover {
-            color: var(--color-primary);
+
+        /* --- Media Queries (Responsiveness) --- */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            .content-grid {
+                grid-template-columns: 1fr; /* Stack layout */
+            }
+            .sidebar {
+                border-left: none;
+                border-top: 1px solid var(--color-border);
+                padding-left: 0;
+                padding-top: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header id="header-hero">
-            <h1>RESEARCH GALLERY</h1>
-            <p>DAWEI XIAO | Theoretical Physics Projects and Publications</p>
-        </header>
+<div class="container">
+    <header>
+        <h1>Dawei Xiao (肖大维)</h1>
+        <p>MSc Candidate in Theoretical High-Energy Physics</p>
+    </header>
 
-        <section id="projects">
-            <h2 style="font-size: 2em; color: var(--color-primary); margin-bottom: 30px; border-bottom: 2px solid var(--color-primary);">Active Investigations</h2>
+    <div class="content-grid">
+        <div class="main-content">
+            <section>
+                <h3>Profile Summary</h3>
+                <p>I am a second-year Master’s student at the University of Amsterdam (UvA), specializing in the foundational questions of **Quantum Gravity and Cosmology**. My work leverages advanced theoretical methods to investigate the properties of de Sitter spacetime.</p>
+                <p>My academic path includes prior Master's study at King's College London, following an undergraduate degree in Material Science and Engineering.</p>
+            </section>
+
+            <section>
+                <h3>Research Interests</h3>
+                <p>My core focus is on the quantum description of the early universe, including:</p>
+                <ul class="simple-list">
+                    <li>The **No-Boundary Wave Function** and theories of cosmic initial conditions.</li>
+                    <li>Application of **Path-Integral** methods to quantum cosmological models.</li>
+                    <li>Theoretical connections between gravity and field theory, such as **dS Holography**.</li>
+                </ul>
+            </section>
             
-            <div class="gallery-grid">
-                
-                <a href="[LINK_TO_CV_PDF]" target="_blank" style="text-decoration: none;">
-                    <div class="gallery-card">
-                        <div class="card-image"><i class="fas fa-meteor"></i></div>
-                        <div class="card-content">
-                            <h3>Quantum Initial Conditions</h3>
-                            <p>Detailed analysis of the No-Boundary Proposal and its consistency within Lorentzian and Euclidean path integrals.</p>
-                            <span class="card-tag">#QuantumCosmology</span>
-                            <span class="card-tag">#Foundations</span>
-                        </div>
+            <section>
+                <h3>Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>MSc in Physics and Astronomy</h4>
+                        <p>University of Amsterdam (UvA) | 2024–2026</p>
                     </div>
-                </a>
-                
-                <a href="[LINK_TO_QFT_NOTES]" target="_blank" style="text-decoration: none;">
-                    <div class="gallery-card">
-                        <div class="card-image" style="background-color: #F39C12;"><i class="fas fa-chart-line"></i></div>
-                        <div class="card-content">
-                            <h3>Advanced Path Integral Methods</h3>
-                            <p>Notes and applications of functional integration, focusing on complex contours and saddle-point approximations.</p>
-                            <span class="card-tag">#QFT</span>
-                            <span class="card-tag">#Gravity</span>
-                        </div>
+                    <div class="timeline-item">
+                        <h4>MSc in Physics</h4>
+                        <p>King's College London (KCL) | 2022–2023</p>
                     </div>
-                </a>
-
-                <a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank" style="text-decoration: none;">
-                    <div class="gallery-card">
-                        <div class="card-image" style="background-color: #9B59B6;"><i class="fas fa-cube"></i></div>
-                        <div class="card-content">
-                            <h3>Holographic Dualities (dS/CFT)</h3>
-                            <p>Investigating correlation functions and bulk reconstruction in the de Sitter/Conformal Field Theory correspondence.</p>
-                            <span class="card-tag">#dS_Space</span>
-                            <span class="card-tag">#Holography</span>
-                        </div>
+                    <div class="timeline-item">
+                        <h4>BEng, Material Science and Engineering</h4>
+                        <p>NPU/QMUL (QMES Joint Program) | 2018–2022</p>
                     </div>
-                </a>
-
-            </div>
-        </section>
-
-    </div>
-    
-    <footer>
-        <div class="contact-icon">
-            <a href="mailto:xiaodawei528@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="[LINK_TO_YOUR_GITHUB]" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank"><i class="fab fa-stack-exchange"></i></a>
+                </div>
+            </section>
+            
+            <section>
+                <h3>Technical Resources</h3>
+                <p>Access to personal notes and project implementations:</p>
+                <ul class="simple-list">
+                    <li><i class="fas fa-file-alt"></i> Quantum Field Theory Note (Draft) [<a href="[LINK_TO_QFT_NOTES]" target="_blank">View File</a>]</li>
+                    <li><i class="fas fa-code"></i> Newman-Janis Algorithm Implementation/Notes [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">View Repository</a>]</li>
+                </ul>
+            </section>
         </div>
-        <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2025 Dawei Xiao. All rights reserved.</p>
+
+        <div class="sidebar">
+            <section>
+                <h3>Contact</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
+                    <li><i class="fas fa-university"></i> <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
+                    <li><i class="fas fa-file-pdf"></i> <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank">Curriculum Vitae</a></li>
+                    <li><i class="fab fa-github"></i> <a href="[LINK_TO_YOUR_GITHUB]" target="_blank">GitHub Profile</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Online Profiles</h3>
+                <ul class="contact-list">
+                    <li><i class="fab fa-stack-exchange"></i> <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
+                    <li><i class="fab fa-zhihu"></i> <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">知乎 (Zhihu)</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Personal Interests</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-history"></i> Japanese Sengoku History</li>
+                    <li><i class="fas fa-futbol"></i> Manchester United Fan</li>
+                    <li><i class="fas fa-music"></i> Ambient Music (Xeuphoria)</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dawei Xiao. All rights reserved.</p>
     </footer>
-    
+</div>
+
 </body>
 </html>
