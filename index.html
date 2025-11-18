@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dawei Xiao (肖大维) | Research Log & Profile</title>
+    <title>Dawei Xiao // Abstract Profile Grid</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* --- Color Variables & Reset --- */
+        /* --- Variables & Reset --- */
         :root {
-            --color-primary: #003366; /* Deep Academic Blue */
-            --color-accent: #CC0000; /* Subtle Red for highlight */
-            --color-text: #2c3e50;
-            --color-text-mono: #444;
-            --color-bg-light: #FBFBFB;
-            --color-bg-card: #FFFFFF;
-            --color-border: #E5E5E5;
-            --color-code-bg: #F0F4F7; /* Light technical background */
-            --font-serif: 'Lora', serif;
-            --font-mono: 'Fira Code', monospace;
+            --color-bg: #1A1A1A; /* Deep Dark Background */
+            --color-text: #F0F0F0;
+            --color-primary: #00FFFF; /* Electric Cyan */
+            --color-secondary: #FF00FF; /* Magenta */
+            --color-accent-dark: #2A2A2A;
+            --font-main: 'Inter', sans-serif;
         }
 
         * {
@@ -30,287 +26,310 @@
         }
 
         body {
-            background-color: var(--color-bg-light);
+            background-color: var(--color-bg);
             color: var(--color-text);
-            font-family: var(--font-serif);
+            font-family: var(--font-main);
             line-height: 1.6;
-            font-size: 16px;
+            min-height: 100vh;
         }
 
-        /* --- Layout Container & Header --- */
-        .container {
-            max-width: 1050px;
-            margin: 40px auto;
-            background-color: var(--color-bg-card);
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            padding: 40px;
-        }
-        
-        header {
-            border-bottom: 3px solid var(--color-primary);
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-
-        header p {
-            font-size: 1.1em;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        /* --- Technical Grid Layout --- */
-        .content-grid {
+        /* --- Global Layout Grid (The Core Aesthetic) --- */
+        .page-grid {
             display: grid;
-            grid-template-columns: 3fr 1fr; /* Main Content | Technical Sidebar */
-            gap: 40px;
+            /* 复杂网格：四列，高度自适应 */
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            grid-auto-rows: minmax(150px, auto);
+            gap: 15px;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* General Card Styling */
+        .card {
+            background-color: var(--color-accent-dark);
+            padding: 30px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- Typography and Headings --- */
-        h3 {
-            font-size: 1.5em;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+        }
+
+        h2 {
+            font-size: 1.1em;
             color: var(--color-primary);
-            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 15px;
+            border-bottom: 2px solid var(--color-secondary);
             padding-bottom: 5px;
-            border-bottom: 1px solid var(--color-border);
-            font-weight: 600;
-        }
-        
-        .section-separator {
-            margin: 40px 0;
-            border: 0;
-            border-top: 1px dashed var(--color-border);
-        }
-
-        /* --- Code & Technical Boxes --- */
-        .code-block {
-            background-color: var(--color-code-bg);
-            padding: 15px;
-            border-radius: 3px;
-            border-left: 4px solid var(--color-accent);
-            font-family: var(--font-mono);
-            font-size: 0.9em;
-            color: var(--color-text-mono);
-            overflow-x: auto;
-            margin: 15px 0;
-        }
-
-        .code-block p {
-            margin: 3px 0;
-        }
-        
-        .code-highlight {
-            color: var(--color-accent);
             font-weight: 600;
         }
 
-        /* --- Research List (Technical List) --- */
-        .research-list {
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-secondary);
+            text-decoration: underline;
+        }
+
+        /* --- Specific Card Placement and Styling (Asymmetry) --- */
+
+        /* 1. Profile Title (Wide Header) */
+        #profile-title {
+            grid-column: 1 / span 4; /* Full Width */
+            background-color: var(--color-secondary);
+            color: var(--color-bg);
+            padding: 40px 30px;
+        }
+        #profile-title h1 {
+            font-size: 3em;
+            margin-bottom: 5px;
+            color: var(--color-bg);
+        }
+        #profile-title p {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        /* 2. Research Focus (Tall) */
+        #research-focus {
+            grid-column: 1 / span 2;
+            grid-row: 2 / span 2; /* Spans two rows */
+            border-left: 5px solid var(--color-primary);
+        }
+        
+        #research-focus ul {
             list-style: none;
             padding-left: 0;
+            font-size: 1.1em;
         }
 
-        .research-list li {
-            position: relative;
-            padding-left: 30px;
+        #research-focus li {
             margin-bottom: 10px;
-            border-bottom: 1px dotted var(--color-border);
-            padding-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
         }
 
-        .research-list li i {
+        #research-focus li::before {
+            content: "//"; /* Abstract bullet point */
+            color: var(--color-secondary);
+            position: absolute;
+            left: 0;
+            font-weight: 800;
+        }
+
+        /* 3. Contact (Square) */
+        #contact {
+            grid-column: 3 / span 1;
+            grid-row: 2 / span 1; 
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            font-family: var(--font-main);
+            font-size: 0.95em;
+        }
+
+        .contact-list li {
+            margin-bottom: 10px;
+        }
+
+        .contact-list i {
+            width: 20px;
+            color: var(--color-primary);
+        }
+
+        /* 4. CV/Links (Square) */
+        #links {
+            grid-column: 4 / span 1;
+            grid-row: 2 / span 1; 
+        }
+        
+        #links .link-button {
+            display: block;
+            background: var(--color-primary);
+            color: var(--color-bg);
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        #links .link-button:hover {
+            background: var(--color-secondary);
+        }
+        
+        /* 5. Education/Log (Wide) */
+        #education-log {
+            grid-column: 3 / span 2;
+            grid-row: 3 / span 1;
+        }
+        
+        .log-item {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            border-bottom: 1px dotted var(--color-bg);
+        }
+        .log-item span {
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        /* 6. Technical Notes (Wide) */
+        #notes-projects {
+            grid-column: 1 / span 3;
+            grid-row: 4 / span 1;
+        }
+
+        .note-item {
+            margin-bottom: 10px;
+            font-family: var(--font-main);
+            padding-left: 20px;
+            position: relative;
+        }
+        .note-item i {
             position: absolute;
             left: 0;
             top: 5px;
-            color: var(--color-accent);
-        }
-
-        .research-list li strong {
-            font-family: var(--font-mono);
-            color: var(--color-text-mono);
-        }
-
-        /* --- Technical Sidebar (Contact/CV/Tags) --- */
-        .sidebar {
-            background-color: var(--color-code-bg);
-            padding: 20px;
-            border-radius: 3px;
-            height: fit-content;
-        }
-        
-        .sidebar h4 {
-            font-family: var(--font-mono);
             color: var(--color-primary);
-            margin-bottom: 10px;
-            font-size: 1em;
-            text-transform: uppercase;
         }
 
-        .contact-item {
-            font-family: var(--font-mono);
-            margin-bottom: 10px;
-            font-size: 0.85em;
-            line-height: 1.4;
+        /* 7. Hobbies/Vibes (Small Square) */
+        #hobbies {
+            grid-column: 4 / span 1;
+            grid-row: 4 / span 1;
         }
 
-        .contact-item i {
-            width: 20px;
-            color: var(--color-accent);
-        }
-        
-        .tag-container {
-            margin-top: 15px;
-        }
-
-        .tag {
+        .hobby-tag {
             display: inline-block;
-            background: var(--color-primary);
-            color: white;
+            background: var(--color-bg);
+            color: var(--color-primary);
             padding: 4px 8px;
-            margin: 3px 3px 3px 0;
+            margin: 3px;
             border-radius: 2px;
-            font-size: 0.75em;
-            font-family: var(--font-mono);
+            font-size: 0.8em;
         }
 
         /* --- Footer --- */
         footer {
+            grid-column: 1 / span 4;
             text-align: center;
-            padding-top: 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--color-border);
-            font-size: 0.85em;
-            color: #999;
-            font-family: var(--font-mono);
+            padding: 20px 0;
+            font-size: 0.8em;
+            color: #888;
+            border-top: 1px solid var(--color-accent-dark);
+            margin-top: 15px;
         }
 
-        /* --- Media Queries --- */
-        @media (max-width: 800px) {
-            .container {
-                margin: 20px;
+        /* --- Responsiveness --- */
+        @media (max-width: 950px) {
+            .page-grid {
+                grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
                 padding: 20px;
+                gap: 10px;
             }
-            .content-grid {
-                grid-template-columns: 1fr;
+            #profile-title { grid-column: 1 / span 2; }
+            #research-focus { grid-column: 1 / span 2; grid-row: auto; }
+            #contact { grid-column: 1 / span 1; grid-row: auto; }
+            #links { grid-column: 2 / span 1; grid-row: auto; }
+            #education-log { grid-column: 1 / span 2; grid-row: auto; }
+            #notes-projects { grid-column: 1 / span 2; grid-row: auto; }
+            #hobbies { grid-column: 1 / span 2; grid-row: auto; }
+            footer { grid-column: 1 / span 2; }
+        }
+
+        @media (max-width: 600px) {
+             .page-grid {
+                grid-template-columns: 1fr; /* Single column on small screens */
             }
-            .sidebar {
-                border-left: none;
+            #profile-title { grid-column: 1; }
+            #research-focus { grid-column: 1; grid-row: auto; }
+            #contact { grid-column: 1; grid-row: auto; }
+            #links { grid-column: 1; grid-row: auto; }
+            #education-log { grid-column: 1; grid-row: auto; }
+            #notes-projects { grid-column: 1; grid-row: auto; }
+            #hobbies { grid-column: 1; grid-row: auto; }
+            footer { grid-column: 1; }
+             #profile-title h1 {
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Dawei Xiao (肖大维, he/him)</h1>
-        <p>MSc Candidate in Theoretical High-Energy Physics | University of Amsterdam</p>
-    </header>
+<div class="page-grid">
+    
+    <div id="profile-title" class="card">
+        <h1>DAWEI XIAO <span style="font-size: 0.5em;">(肖大维, he/him)</span></h1>
+        <p>Theoretical High-Energy Physics // UvA</p>
+    </div>
 
-    <div class="content-grid">
-        
-        <div class="main-content">
-            
-            <section id="profile">
-                <h3>// MODULE_01: PROFILE_OVERVIEW</h3>
-                <p>I am a second-year Master’s student focused on the interface between **quantum gravity and cosmology**. My research utilizes technical methods derived from quantum field theory to analyze the geometry and quantum properties of de Sitter spacetime.</p>
-            </section>
-            
-            <hr class="section-separator">
-            
-            <section id="research">
-                <h3>// MODULE_02: RESEARCH_PARAMETERS</h3>
-                <div class="code-block">
-                    <p>// PRIMARY_SYSTEM_FOCUS</p>
-                    <p><span class="code-highlight">System.ds_spacetime</span>: Quantum Aspects of de Sitter Geometry</p>
-                </div>
-                
-                <p>Key theoretical parameters under investigation:</p>
-                <ul class="research-list">
-                    <li><i class="fas fa-microscope"></i> <strong>No-Boundary Wave Function</strong>: Exploring initial conditions and boundary constraints.</li>
-                    <li><i class="fas fa-terminal"></i> <strong>Path-Integral Formulations</strong>: Applying functional integration techniques to quantum cosmology.</li>
-                    <li><i class="fas fa-link"></i> <strong>dS Holography Proposals</strong>: Analyzing dualities between gravitational and boundary theories.</li>
-                </ul>
-            </section>
-            
-            <hr class="section-separator">
+    <div id="research-focus" class="card">
+        <h2>CORE RESEARCH VECTORS</h2>
+        <p style="margin-bottom: 20px;">Analysis of quantum states in de Sitter geometry:</p>
+        <ul>
+            <li>No-Boundary Wave Function (Initial State)</li>
+            <li>Path-Integral Formulation (Methodology)</li>
+            <li>dS Holography (Duality Exploration)</li>
+        </ul>
+    </div>
 
-            <section id="resources">
-                <h3>// MODULE_03: TECHNICAL_RESOURCES</h3>
-                <p>Access points for notes and technical implementations:</p>
-                
-                <div class="code-block">
-                    <p><span class="code-highlight">FUNCTION</span>: QFT_Notes_Draft()</p>
-                    <p>  <span class="code-highlight">STATUS</span>: Draft (Covering Selected Topics)</p>
-                    <p>  <span class="code-highlight">LOCATION</span>: [<a href="[LINK_TO_QFT_NOTES]" target="_blank">View File</a>]</p>
-                </div>
+    <div id="contact" class="card">
+        <h2>CONTACT INTERFACE</h2>
+        <ul class="contact-list">
+            <li><i class="fas fa-envelope"></i> <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
+            <li><i class="fas fa-university"></i> <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
+            <li><i class="fab fa-stack-exchange"></i> <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">Stack Exchange Profile</a></li>
+            <li><i class="fab fa-zhihu"></i> <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">Zhihu Profile</a></li>
+        </ul>
+    </div>
 
-                <div class="code-block">
-                    <p><span class="code-highlight">ALGORITHM</span>: NewmanJanisAlgorithm.py</p>
-                    <p>  <span class="code-highlight">PURPOSE</span>: Generating Kerr-like metrics from seed solutions.</p>
-                    <p>  <span class="code-highlight">LOCATION</span>: [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">View Repository</a>]</p>
-                </div>
-            </section>
-            
-            <hr class="section-separator">
+    <div id="links" class="card">
+        <h2>DOCUMENTATION</h2>
+        <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank" class="link-button"><i class="fas fa-file-pdf"></i> DOWNLOAD CV</a>
+        <a href="[LINK_TO_YOUR_GITHUB]" target="_blank" class="link-button"><i class="fab fa-github"></i> GITHUB REPO</a>
+    </div>
 
-            <section id="education">
-                <h3>// MODULE_04: ACADEMIC_LOG</h3>
-                <p>— Acquisition Log —</p>
-                <div class="code-block" style="border-left-color: var(--color-primary);">
-                    <p><span class="code-highlight">2024–2026</span> | MSc, Physics and Astronomy | University of Amsterdam (UvA)</p>
-                    <p><span class="code-highlight">2022–2023</span> | MSc, Physics | King's College London (KCL)</p>
-                    <p><span class="code-highlight">2018–2022</span> | BEng, Material Science and Engineering | NPU/QMUL</p>
-                </div>
-            </section>
-        </div>
+    <div id="education-log" class="card">
+        <h2>ACADEMIC LOG</h2>
+        <div class="log-item"><span>2024–2026</span> MSc, Physics and Astronomy, UvA</div>
+        <div class="log-item"><span>2022–2023</span> MSc, Physics, KCL</div>
+        <div class="log-item"><span>2018–2022</span> BEng, Material Science, NPU/QMUL</div>
+    </div>
 
-        <div class="sidebar">
-            <section>
-                <h4>// CONTACT_INTERFACE</h4>
-                <ul class="contact-list">
-                    <li class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
-                    <li class="contact-item"><i class="fas fa-university"></i> <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
-                    <li class="contact-item"><i class="fas fa-file-pdf"></i> <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank">Download CV (PDF)</a></li>
-                    <li class="contact-item"><i class="fab fa-github"></i> <a href="[LINK_TO_YOUR_GITHUB]" target="_blank">GitHub Profile</a></li>
-                </ul>
-            </section>
-            
-            <hr style="border-color: #D0D0D0; margin: 20px 0;">
+    <div id="notes-projects" class="card">
+        <h2>TECHNICAL NOTES</h2>
+        <div class="note-item"><i class="fas fa-file-alt"></i> Quantum Field Theory Note (Draft) [<a href="[LINK_TO_QFT_NOTES]" target="_blank">Access</a>]</div>
+        <div class="note-item"><i class="fas fa-code"></i> Newman-Janis Algorithm Notes [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">Access</a>]</div>
+    </div>
 
-            <section>
-                <h4>// EXTERNAL_VALIDATION</h4>
-                <ul class="contact-list">
-                    <li class="contact-item"><i class="fab fa-stack-exchange"></i> <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
-                    <li class="contact-item"><i class="fab fa-zhihu"></i> <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">知乎 (Zhihu)</a></li>
-                </ul>
-            </section>
-
-            <hr style="border-color: #D0D0D0; margin: 20px 0;">
-            
-            <section>
-                <h4>// PERSONAL_TAGS</h4>
-                <div class="tag-container">
-                    <span class="tag">#THEORY_PHYSICS</span>
-                    <span class="tag">#QUANTUM_COSMOLOGY</span>
-                    <span class="tag">#RTS_GAMING</span>
-                    <span class="tag">#SENGOKU_HISTORY</span>
-                    <span class="tag">#MAN_UTD_FAN</span>
-                    <span class="tag">#Xeuphoria</span>
-                </div>
-            </section>
-        </div>
+    <div id="hobbies" class="card">
+        <h2>PERSONAL INTERESTS</h2>
+        <div class="hobby-tag">Sengoku History</div>
+        <div class="hobby-tag">Manchester United</div>
+        <div class="hobby-tag">RTS Games (AoE IV)</div>
+        <div class="hobby-tag">Ambient Music (Xeuphoria)</div>
     </div>
 
     <footer>
-        <p>CONSOLE_OUTPUT: Profile rendered successfully. Last updated: [DATE].</p>
+        <p>Design Style: Abstract Geometric Grid. Rendered successfully. &copy; 2025 Dawei Xiao.</p>
     </footer>
 </div>
 
