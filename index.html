@@ -3,161 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dawei Xiao | [1998] Personal Web Page</title>
+    <title>Dawei Xiao | Research Gallery</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Tahoma:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         :root {
-            --color-bg: #C0C0C0; /* Standard Windows Gray */
-            --color-window: #FFFFFF;
-            --color-text: #000000;
-            --color-border-light: #FFFFFF;
-            --color-border-dark: #808080;
-            --color-accent-blue: #0000AA; /* Classic Blue */
-            --font-main: 'Tahoma', Verdana, sans-serif;
-            --button-height: 25px;
+            --color-bg-dark: #1C2833; /* Dark Slate Gray */
+            --color-primary: #3498DB; /* Blue */
+            --color-accent: #E74C3C; /* Red */
+            --color-text: #ECF0F1; /* Light Gray */
+            --color-card: #2C3E50; /* Darker Card */
+            --font-main: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--color-bg);
+            background-color: var(--color-bg-dark);
             color: var(--color-text);
             font-family: var(--font-main);
-            line-height: 1.5;
-            padding: 20px;
+            line-height: 1.6;
+            padding-bottom: 80px;
         }
 
-        .window-frame {
-            max-width: 900px;
-            margin: 20px auto;
-            border: 2px solid var(--color-border-dark);
-            border-right-color: var(--color-border-light);
-            border-bottom-color: var(--color-border-light);
-            background-color: var(--color-bg);
-            box-shadow: 2px 2px 0 var(--color-text);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .title-bar {
-            background-color: var(--color-accent-blue);
-            color: var(--color-border-light);
-            padding: 5px 8px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* --- Header / Hero --- */
+        #header-hero {
+            text-align: center;
+            padding: 80px 0 50px;
         }
-
-        .window-content {
-            padding: 15px 20px;
-            background-color: var(--color-window);
-        }
-
-        /* --- Section Styling (Panel) --- */
-        .panel {
-            border: 2px inset var(--color-border-dark); /* Inset border for depth */
-            background-color: var(--color-bg);
-            padding: 15px;
-            margin-bottom: 25px;
-        }
-
-        .panel-title {
-            color: var(--color-accent-blue);
-            font-size: 1.2em;
+        
+        #header-hero h1 {
+            font-size: 4em;
+            font-weight: 700;
             margin-bottom: 10px;
-            font-weight: bold;
-            border-bottom: 1px solid var(--color-border-dark);
-            padding-bottom: 3px;
-        }
-        
-        /* --- Links and Buttons --- */
-        a {
-            color: var(--color-accent-blue);
-            text-decoration: underline;
+            color: var(--color-primary);
         }
 
-        .button {
-            display: inline-block;
-            background-color: var(--color-bg);
-            border: 2px outset var(--color-border-light); /* Outset border for lift */
-            border-right-color: var(--color-border-dark);
-            border-bottom-color: var(--color-border-dark);
-            padding: 3px 8px;
-            margin-right: 10px;
-            font-size: 0.9em;
-            text-decoration: none;
+        #header-hero p {
+            font-size: 1.2em;
             color: var(--color-text);
+        }
+        
+        /* --- Gallery Grid --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .gallery-card {
+            background: var(--color-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease-out;
             cursor: pointer;
-            height: var(--button-height);
-            line-height: var(--button-height);
-            padding: 0 10px;
+            
+            /* Enable 3D transform on hover */
+            transform-style: preserve-3d;
+        }
+
+        /* 3D Immersive Effect on Hover */
+        .gallery-card:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.03);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: var(--color-primary); /* Placeholder for actual image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+        }
+
+        .card-content {
+            padding: 25px;
         }
         
-        .button:active {
-            border: 2px inset var(--color-border-dark); /* Inset on click */
+        .card-content h3 {
+            font-size: 1.5em;
+            color: var(--color-accent);
+            margin-bottom: 10px;
         }
         
-        /* --- Marquee (A retro touch) --- */
-        .marquee-bar {
-            background-color: #FFFFE0;
-            border: 1px solid #808080;
-            padding: 5px;
-            margin: 15px 0;
-            font-size: 0.9em;
+        .card-tag {
+            display: inline-block;
+            background: var(--color-bg-dark);
+            font-size: 0.8em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-top: 10px;
         }
         
+        /* --- Contact Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--color-card);
+            margin-top: 60px;
+        }
+        
+        .contact-icon a {
+            color: var(--color-text);
+            font-size: 1.5em;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .contact-icon a:hover {
+            color: var(--color-primary);
+        }
     </style>
 </head>
 <body>
 
-<div class="window-frame">
-    <div class="title-bar">
-        <span>Dawei Xiao.html</span>
-        <span style="font-size: 0.7em;">[_] [o] [x]</span>
+    <div class="container">
+        <header id="header-hero">
+            <h1>RESEARCH GALLERY</h1>
+            <p>DAWEI XIAO | Theoretical Physics Projects and Publications</p>
+        </header>
+
+        <section id="projects">
+            <h2 style="font-size: 2em; color: var(--color-primary); margin-bottom: 30px; border-bottom: 2px solid var(--color-primary);">Active Investigations</h2>
+            
+            <div class="gallery-grid">
+                
+                <a href="[LINK_TO_CV_PDF]" target="_blank" style="text-decoration: none;">
+                    <div class="gallery-card">
+                        <div class="card-image"><i class="fas fa-meteor"></i></div>
+                        <div class="card-content">
+                            <h3>Quantum Initial Conditions</h3>
+                            <p>Detailed analysis of the No-Boundary Proposal and its consistency within Lorentzian and Euclidean path integrals.</p>
+                            <span class="card-tag">#QuantumCosmology</span>
+                            <span class="card-tag">#Foundations</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="[LINK_TO_QFT_NOTES]" target="_blank" style="text-decoration: none;">
+                    <div class="gallery-card">
+                        <div class="card-image" style="background-color: #F39C12;"><i class="fas fa-chart-line"></i></div>
+                        <div class="card-content">
+                            <h3>Advanced Path Integral Methods</h3>
+                            <p>Notes and applications of functional integration, focusing on complex contours and saddle-point approximations.</p>
+                            <span class="card-tag">#QFT</span>
+                            <span class="card-tag">#Gravity</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank" style="text-decoration: none;">
+                    <div class="gallery-card">
+                        <div class="card-image" style="background-color: #9B59B6;"><i class="fas fa-cube"></i></div>
+                        <div class="card-content">
+                            <h3>Holographic Dualities (dS/CFT)</h3>
+                            <p>Investigating correlation functions and bulk reconstruction in the de Sitter/Conformal Field Theory correspondence.</p>
+                            <span class="card-tag">#dS_Space</span>
+                            <span class="card-tag">#Holography</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
     </div>
-
-    <div class="window-content">
-        <div style="text-align: center; margin-bottom: 20px;">
-            <h1 style="font-size: 2em;">:: DAWEI XIAO - PERSONAL PAGE ::</h1>
-            <p>Theoretical Physics & Quantum Cosmology</p>
+    
+    <footer>
+        <div class="contact-icon">
+            <a href="mailto:xiaodawei528@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="[LINK_TO_YOUR_GITHUB]" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank"><i class="fab fa-stack-exchange"></i></a>
         </div>
-        
-        <div class="marquee-bar">
-            <marquee>NEW: Working on dS Holography. View CV for detailed log. | Best viewed at 800x600 resolution.</marquee>
-        </div>
-
-        <div style="text-align: center; margin-bottom: 20px;">
-            <a href="mailto:xiaodawei528@gmail.com" class="button">Email</a>
-            <a href="[LINK_TO_YOUR_CV_PDF]" class="button">Download [CV.PDF]</a>
-            <a href="[LINK_TO_YOUR_GITHUB]" class="button">GitHub Repository</a>
-        </div>
-        
-        <div class="panel">
-            <div class="panel-title">| PROFILE.INI</div>
-            <p>Status: MSc Candidate, UvA (Theoretical High-Energy Physics).</p>
-            <p>Primary directive: Quantum gravity in de Sitter space. Secondary: Materials science background integration.</p>
-        </div>
-
-        <div class="panel">
-            <div class="panel-title">| RESEARCH_MODULES</div>
-            <ul style="padding-left: 20px; list-style-type: square;">
-                <li>Module 1: No-Boundary Wave Function Analysis</li>
-                <li>Module 2: Path-Integral Methodologies</li>
-                <li>Module 3: dS/CFT Correlation Studies</li>
-            </ul>
-        </div>
-        
-        <div class="panel">
-            <div class="panel-title">| EXTERNAL_LINKS.LST</div>
-            <p style="font-size: 0.9em;">QFT Notes: <a href="[LINK_TO_QFT_NOTES]" target="_blank">QFT_NOTES.TXT</a></p>
-            <p style="font-size: 0.9em;">Newman-Janis Algorithm: <a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">NJ_ALGO.ZIP</a></p>
-        </div>
-
-        <p style="text-align: right; font-size: 0.8em; margin-top: 20px;">Page last updated: 18 NOV 2025. Thank you for visiting!</p>
-    </div>
-</div>
+        <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2025 Dawei Xiao. All rights reserved.</p>
+    </footer>
     
 </body>
 </html>
