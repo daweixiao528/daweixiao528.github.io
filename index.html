@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dawei Xiao (肖大维) | Theoretical Physics</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://via.placeholder.com/16x16?text=DX" type="image/x-icon">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* -- 基础样式与布局 -- */
+        /* --- Color Variables & Reset (UPDATED BACKGROUND COLOR) --- */
         :root {
-            --primary-color: #004c99; /* 深蓝色，代表学术和专业 */
+            --primary-color: #004c99; /* 深蓝色 */
             --text-color: #333;
-            --background-color: #f9f9f9;
+            --background-color-page: #E9EDF2; /* 页面背景：浅灰蓝 */
+            --background-color-card: #F3F6F9; /* 容器背景：柔和的浅蓝灰色 (代替纯白) */
             --border-color: #e0e0e0;
-            --link-hover-color: #e31b23; /* 细微的红色高亮 */
+            --link-hover-color: #e31b23; /* 红色高亮 */
         }
 
         body {
-            /* 替换为 Inter 或系统默认字体，避免依赖外部链接 */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--background-color);
+            background-color: var(--background-color-page);
             margin: 0;
             padding: 0;
         }
@@ -31,11 +34,13 @@
             max-width: 1200px;
             margin: 40px auto;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            background-color: var(--background-color-card); /* 使用浅蓝灰色 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             border-top: 5px solid var(--primary-color);
+            border-radius: 6px;
         }
 
+        /* --- Header --- */
         header {
             margin-bottom: 30px;
             padding-bottom: 20px;
@@ -54,20 +59,18 @@
             color: #666;
             margin: 0;
         }
-        
-        /* 避免引用外部 link 标签，此处不再需要 */
-        /* link rel="stylesheet" href="style.css" */
 
-        /* -- 主要内容区（响应式网格） -- */
+        /* --- Main Layout Grid --- */
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr 3fr; /* 侧边栏占据 1/4，主内容占据 3/4 */
+            grid-template-columns: 3fr 1fr; /* 主内容区 | 侧边栏 */
             gap: 40px;
         }
 
+        /* --- Sidebar (Contact & Interests) --- */
         .sidebar {
-            padding-right: 20px;
-            border-right: 1px solid var(--border-color);
+            padding-left: 20px;
+            border-left: 1px solid var(--border-color);
         }
 
         .sidebar h3 {
@@ -75,10 +78,32 @@
             padding-bottom: 5px;
             margin-top: 0;
             color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Contact/Link List Styling */
+        .contact-info ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
         }
         
+        .contact-info ul li {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .contact-info .icon {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+        
+        /* --- Main Content --- */
         .main-content h3 {
-             color: var(--primary-color); /* 统一主标题颜色 */
+             color: var(--primary-color);
              font-size: 1.5em;
              margin-bottom: 15px;
         }
@@ -95,35 +120,19 @@
             padding-bottom: 0;
         }
 
-        /* -- 列表和链接样式 -- */
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
+        /* Research List */
+        .research-list {
+            list-style: disc;
+            padding-left: 20px;
         }
 
-        a:hover {
-            color: var(--link-hover-color);
-            text-decoration: underline;
-        }
-
-        ul {
+        /* Notes List (Simple list style) */
+        .notes-list {
             list-style: none;
             padding-left: 0;
         }
 
-        .contact-info ul li {
-            margin-bottom: 10px;
-        }
-
-        .contact-info .icon {
-            display: inline-block;
-            width: 20px;
-            text-align: center;
-            margin-right: 5px;
-        }
-
-        /* -- 教育时间线样式 -- */
+        /* --- Education Timeline --- */
         .timeline-item {
             margin-bottom: 20px;
             padding-left: 15px;
@@ -135,13 +144,26 @@
             font-weight: bold;
             color: #666;
             margin-bottom: 5px;
+            font-size: 0.95em;
         }
 
         .timeline-item p {
             margin: 0 0 3px 0;
         }
 
-        /* -- 脚注 -- */
+        /* --- Links --- */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--link-hover-color);
+            text-decoration: underline;
+        }
+
+        /* --- Footer --- */
         footer {
             text-align: center;
             padding-top: 20px;
@@ -151,15 +173,16 @@
             color: #999;
         }
 
-        /* -- 响应式调整 -- */
+        /* --- Responsive Adjustment --- */
         @media (max-width: 800px) {
             .content-grid {
-                grid-template-columns: 1fr; /* 在小屏幕上改为单列布局 */
+                grid-template-columns: 1fr;
             }
             .sidebar {
+                padding-left: 0;
                 padding-right: 0;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color); /* 在底部添加分隔线 */
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
                 padding-bottom: 20px;
             }
             .container {
@@ -179,47 +202,29 @@
 
         <main class="content-grid">
             
-            <aside class="sidebar">
-                <section class="contact-info">
-                    <h3>Contact & Links</h3>
-                    <ul>
-                        <li><span class="icon">📧</span> **Email (Primary):** <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
-                        <li><span class="icon">🎓</span> **Email (UvA):** <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
-                        <li><span class="icon">📄</span> <a href="[YOUR_CV_LINK_HERE]" target="_blank">Download My CV (PDF)</a></li>
-                        <li><span class="icon">💻</span> <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">GitHub Profile</a></li>
-                    </ul>
-                </section>
-                
-                <section class="personal-interests">
-                    <h3>Interests</h3>
-                    <p>Outside of physics, I enjoy: Japanese Sengoku history, supporting Manchester United (football fan), and playing RTS games (like Age of Empires IV). I often unwind by listening to light music (Xeuphoria is my favorite composer).</p>
-                </section>
-            </aside>
-
             <div class="main-content">
                 <section class="about">
                     <h3>About Me</h3>
-                    <p>I am a second-year Master’s student in **Theoretical High-Energy Physics** at the University of Amsterdam (UvA). I previously obtained an MSc in Physics from King's College London (KCL) and a BEng in Materials Science and Engineering from the NPU/QMUL Joint Program (QMES).</p>
-                    <p>My academic focus is on the foundational questions in quantum gravity and cosmology, aiming to explore the quantum nature of spacetime.</p>
-                </section>
-
+                    <p>I’m currently a second-year Master’s student in **Theoretical High-Energy Physics** at the University of Amsterdam. I hold a Master’s degree in Physics from King’s College London and a Bachelor’s degree in Materials Science and Engineering from QMES, NPU.</p>
+                    </section>
+                
                 <section class="research">
                     <h3>Research Interests</h3>
-                    <p>My research interests broadly concern the quantum aspects of de Sitter spacetime. Specific areas of focus include:</p>
+                    <p>My research interests broadly concern the **quantum aspects of de Sitter spacetime**, with particular focus on:</p>
                     <ul class="research-list">
                         <li>**No-Boundary Wave Function**</li>
                         <li>**Path-Integral Formulations of Quantum Cosmology**</li>
-                        <li>**dS Holography Proposals** (e.g., dS/CFT)</li>
-                        <li>**Quantum Field Theory in Curved Spacetime**</li>
+                        <li>**dS Holography Proposals**</li>
+                        <li>Quantum Field Theory in Curved Spacetime</li>
                     </ul>
                 </section>
-
+                
                 <section class="education">
                     <h3>Education</h3>
                     <div class="timeline">
                         <div class="timeline-item">
                             <span class="year">2024 – 2026</span>
-                            <p><strong>MSc in Physics and Astronomy</strong> (Theoretical High-Energy Physics)</p>
+                            <p><strong>MSc in Physics and Astronomy</strong></p>
                             <p>University of Amsterdam (UvA), The Netherlands</p>
                         </div>
                         <div class="timeline-item">
@@ -230,7 +235,7 @@
                         <div class="timeline-item">
                             <span class="year">2018 – 2022</span>
                             <p><strong>BEng, Material Science and Engineering</strong></p>
-                            <p>Northwestern Polytechnical University (NPU) / Queen Mary University of London (QMUL)</p>
+                            <p>NPU/QMUL Joint Program (QMES)</p>
                         </div>
                     </div>
                 </section>
@@ -247,6 +252,25 @@
                     </ul>
                 </section>
             </div>
+
+            <aside class="sidebar">
+                <section class="contact-info">
+                    <h3>Contact & Links</h3>
+                    <ul>
+                        <li><span class="icon"><i class="fas fa-envelope"></i></span> **Email (Primary):** <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
+                        <li><span class="icon"><i class="fas fa-university"></i></span> **Email (UvA):** <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
+                        <li><span class="icon"><i class="fas fa-file-pdf"></i></span> <a href="[YOUR_CV_LINK_HERE]" target="_blank">My CV (PDF)</a></li>
+                        <li><span class="icon"><i class="fab fa-github"></i></span> <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">GitHub Profile</a></li>
+                        <li><span class="icon"><i class="fab fa-stack-exchange"></i></span> <a href="[LINK_TO_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
+                        <li><span class="icon"><i class="fab fa-zhihu"></i></span> <a href="[LINK_TO_ZHIHU]" target="_blank">知乎</a></li>
+                    </ul>
+                </section>
+                
+                <section class="personal-interests">
+                    <h3>Interests</h3>
+                    <p>Outside of physics, I have an interest in Japanese Sengoku history. I’m also a passionate football fan and have supported Manchester United for years. In my free time, I enjoy playing RTS games like *Age of Empires IV*, and I often unwind by listening to light music—Xeuphoria is my favorite composer.</p>
+                </section>
+            </aside>
         </main>
 
         <footer>
