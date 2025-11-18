@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* --- Color Variables & Reset --- */
+        /* --- Color Variables & Reset (Warm Palette) --- */
         :root {
-            --primary-color: #004c99; /* 深蓝色 */
+            --primary-color: #6A0DAD; /* 深紫色 (Deep Purple) */
             --text-color: #333;
-            --background-color-page: #E9EDF2; /* 页面背景：浅灰蓝 */
-            --background-color-card: #F3F6F9; /* 容器背景：柔和的浅蓝灰色 (代替纯白) */
+            --background-color-page: #F3F1F0; /* 页面背景：浅米白 (Warm Off-White) */
+            --background-color-card: #FFFFFF; /* 容器背景：干净的白色，增强对比度 */
             --border-color: #e0e0e0;
-            --link-hover-color: #e31b23; /* 红色高亮 */
+            --link-hover-color: #FF6700; /* 橙色高亮，与紫色形成对比 */
         }
 
         body {
@@ -33,11 +33,11 @@
         .container {
             max-width: 1200px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 30px;
             background-color: var(--background-color-card);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             border-top: 5px solid var(--primary-color);
-            border-radius: 6px;
+            border-radius: 8px;
         }
 
         /* --- Header --- */
@@ -60,17 +60,21 @@
             margin: 0;
         }
 
-        /* --- Main Layout Grid --- */
+        /* --- Main Layout Grid (SWAPPED) --- */
         .content-grid {
+            /* 侧边栏 (1fr) 在左，主内容 (3fr) 在右 */
             display: grid;
-            grid-template-columns: 3fr 1fr; /* 主内容区 (左) | 侧边栏 (右) */
+            grid-template-columns: 1fr 3fr;
             gap: 40px;
         }
 
         /* --- Sidebar (Contact & Links Only) --- */
         .sidebar {
-            padding-left: 20px;
-            border-left: 1px solid var(--border-color);
+            /* 侧边栏现在在左侧，所以移除左侧边框，并添加右侧边框 */
+            padding-right: 20px;
+            padding-left: 0;
+            border-right: 1px solid var(--border-color);
+            border-left: none; 
         }
 
         .sidebar h3 {
@@ -89,7 +93,7 @@
         }
         
         .contact-info ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 0.95em;
         }
 
@@ -97,7 +101,7 @@
             display: inline-block;
             width: 20px;
             text-align: center;
-            margin-right: 5px;
+            margin-right: 8px;
             color: var(--primary-color);
         }
         
@@ -108,7 +112,6 @@
              margin-bottom: 15px;
         }
         
-        /* Specific section styling for visual clarity */
         .main-content section {
             margin-bottom: 40px;
             padding-bottom: 20px;
@@ -177,12 +180,12 @@
         /* --- Responsive Adjustment --- */
         @media (max-width: 800px) {
             .content-grid {
+                /* 在小屏幕上，侧边栏（现在是左侧）将首先堆叠在顶部 */
                 grid-template-columns: 1fr;
             }
             .sidebar {
-                padding-left: 0;
                 padding-right: 0;
-                border-left: none;
+                border-right: none;
                 border-bottom: 1px solid var(--border-color);
                 padding-bottom: 20px;
             }
@@ -203,6 +206,21 @@
 
         <main class="content-grid">
             
+            <aside class="sidebar">
+                <section class="contact-info">
+                    <h3>Contact & Links</h3>
+                    <ul>
+                        <li><span class="icon"><i class="fas fa-envelope"></i></span> **Email (Primary):** <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
+                        <li><span class="icon"><i class="fas fa-university"></i></span> **Email (UvA):** <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
+                        <li><span class="icon"><i class="fas fa-file-pdf"></i></span> <a href="[YOUR_CV_LINK_HERE]" target="_blank">My CV (PDF)</a></li>
+                        <li><span class="icon"><i class="fab fa-github"></i></span> <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">GitHub Profile</a></li>
+                        <li style="margin-top: 20px; font-weight: 600;">-- Online Profiles --</li>
+                        <li><span class="icon"><i class="fab fa-stack-exchange"></i></span> <a href="[LINK_TO_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
+                        <li><span class="icon"><i class="fab fa-zhihu"></i></span> <a href="[LINK_TO_ZHIHU]" target="_blank">知乎</a></li>
+                    </ul>
+                </section>
+            </aside>
+
             <div class="main-content">
                 <section class="about">
                     <h3>About Me</h3>
@@ -258,22 +276,6 @@
                     </ul>
                 </section>
             </div>
-
-            <aside class="sidebar">
-                <section class="contact-info">
-                    <h3>Contact & Links</h3>
-                    <ul>
-                        <li><span class="icon"><i class="fas fa-envelope"></i></span> **Email (Primary):** <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
-                        <li><span class="icon"><i class="fas fa-university"></i></span> **Email (UvA):** <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
-                        <li><span class="icon"><i class="fas fa-file-pdf"></i></span> <a href="[YOUR_CV_LINK_HERE]" target="_blank">My CV (PDF)</a></li>
-                        <li><span class="icon"><i class="fab fa-github"></i></span> <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">GitHub Profile</a></li>
-                        <li style="margin-top: 20px; font-weight: 600;">-- Online Profiles --</li>
-                        <li><span class="icon"><i class="fab fa-stack-exchange"></i></span> <a href="[LINK_TO_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
-                        <li><span class="icon"><i class="fab fa-zhihu"></i></span> <a href="[LINK_TO_ZHIHU]" target="_blank">知乎</a></li>
-                    </ul>
-                </section>
-                
-                </aside>
         </main>
 
         <footer>
