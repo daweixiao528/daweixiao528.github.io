@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* --- Color Variables & Reset --- */
+        /* --- Color Variables & Reset (UPDATED BACKGROUND COLORS) --- */
         :root {
             --color-primary: #0077B6; /* Professional Blue */
             --color-accent: #00B4D8; /* Lighter Accent */
             --color-text: #212529; /* Charcoal Black */
-            --color-bg-light: #F8F9FA;
-            --color-bg-card: #FFFFFF;
-            --color-border: #E9ECEF;
+            --color-bg-light: #E9EDF2; /* Page Background: Slightly Darker Blue-Gray */
+            --color-bg-card: #F3F6F9; /* Container Background: Soft Blue-Gray (NOT WHITE) */
+            --color-border: #DCE0E6; /* Slightly darker border for contrast */
             --font-main: 'Inter', sans-serif;
         }
 
@@ -38,7 +38,7 @@
         .container {
             max-width: 1000px;
             margin: 50px auto;
-            background-color: var(--color-bg-card);
+            background-color: var(--color-bg-card); /* Soft Blue-Gray */
             border-radius: 6px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
             padding: 40px;
@@ -66,7 +66,7 @@
         /* --- Main Grid Layout --- */
         .content-grid {
             display: grid;
-            grid-template-columns: 3fr 1fr; /* Main Content | Sidebar */
+            grid-template-columns: 3fr 1fr;
             gap: 40px;
         }
 
@@ -88,185 +88,4 @@
         .contact-list {
             list-style: none;
             padding: 0;
-            font-size: 0.95em;
-        }
-
-        .contact-list li {
-            margin-bottom: 10px;
-        }
-
-        .contact-list li i {
-            margin-right: 10px;
-            color: var(--color-accent);
-        }
-
-        /* --- Main Content Sections --- */
-        .main-content section {
-            margin-bottom: 35px;
-        }
-
-        .main-content h3 {
-            font-size: 1.4em;
-            color: var(--color-text);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        /* --- Education/Timeline Style --- */
-        .timeline-item {
-            margin-bottom: 20px;
-        }
-        
-        .timeline-item h4 {
-            font-size: 1em;
-            margin: 0;
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-
-        .timeline-item p {
-            margin: 3px 0;
-            color: #6c757d;
-            font-size: 0.9em;
-        }
-        
-        /* --- Links and Lists --- */
-        a {
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        a:hover {
-            color: var(--color-accent);
-            text-decoration: underline;
-        }
-        
-        ul.simple-list {
-            list-style: disc;
-            padding-left: 20px;
-        }
-        
-        ul.simple-list li {
-            margin-bottom: 5px;
-        }
-        
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--color-border);
-            font-size: 0.85em;
-            color: #999;
-        }
-
-        /* --- Media Queries (Responsiveness) --- */
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
-            .content-grid {
-                grid-template-columns: 1fr; /* Stack layout */
-            }
-            .sidebar {
-                border-left: none;
-                border-top: 1px solid var(--color-border);
-                padding-left: 0;
-                padding-top: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <h1>Dawei Xiao (肖大维)</h1>
-        <p>MSc Candidate in Theoretical High-Energy Physics</p>
-    </header>
-
-    <div class="content-grid">
-        <div class="main-content">
-            <section>
-                <h3>Profile Summary</h3>
-                <p>I am a second-year Master’s student at the University of Amsterdam (UvA), specializing in the foundational questions of **Quantum Gravity and Cosmology**. My work leverages advanced theoretical methods to investigate the properties of de Sitter spacetime.</p>
-                <p>My academic path includes prior Master's study at King's College London, following an undergraduate degree in Material Science and Engineering.</p>
-            </section>
-
-            <section>
-                <h3>Research Interests</h3>
-                <p>My core focus is on the quantum description of the early universe, including:</p>
-                <ul class="simple-list">
-                    <li>The **No-Boundary Wave Function** and theories of cosmic initial conditions.</li>
-                    <li>Application of **Path-Integral** methods to quantum cosmological models.</li>
-                    <li>Theoretical connections between gravity and field theory, such as **dS Holography**.</li>
-                </ul>
-            </section>
-            
-            <section>
-                <h3>Education</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4>MSc in Physics and Astronomy</h4>
-                        <p>University of Amsterdam (UvA) | 2024–2026</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>MSc in Physics</h4>
-                        <p>King's College London (KCL) | 2022–2023</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>BEng, Material Science and Engineering</h4>
-                        <p>NPU/QMUL (QMES Joint Program) | 2018–2022</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section>
-                <h3>Technical Resources</h3>
-                <p>Access to personal notes and project implementations:</p>
-                <ul class="simple-list">
-                    <li><i class="fas fa-file-alt"></i> Quantum Field Theory Note (Draft) [<a href="[LINK_TO_QFT_NOTES]" target="_blank">View File</a>]</li>
-                    <li><i class="fas fa-code"></i> Newman-Janis Algorithm Implementation/Notes [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">View Repository</a>]</li>
-                </ul>
-            </section>
-        </div>
-
-        <div class="sidebar">
-            <section>
-                <h3>Contact</h3>
-                <ul class="contact-list">
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
-                    <li><i class="fas fa-university"></i> <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
-                    <li><i class="fas fa-file-pdf"></i> <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank">Curriculum Vitae</a></li>
-                    <li><i class="fab fa-github"></i> <a href="[LINK_TO_YOUR_GITHUB]" target="_blank">GitHub Profile</a></li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Online Profiles</h3>
-                <ul class="contact-list">
-                    <li><i class="fab fa-stack-exchange"></i> <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
-                    <li><i class="fab fa-zhihu"></i> <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">知乎 (Zhihu)</a></li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Personal Interests</h3>
-                <ul class="contact-list">
-                    <li><i class="fas fa-history"></i> Japanese Sengoku History</li>
-                    <li><i class="fas fa-futbol"></i> Manchester United Fan</li>
-                    <li><i class="fas fa-music"></i> Ambient Music (Xeuphoria)</li>
-                </ul>
-            </section>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Dawei Xiao. All rights reserved.</p>
-    </footer>
-</div>
-
-</body>
-</html>
+            font-size:
