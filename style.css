@@ -4,7 +4,7 @@
     --text-color: #333;
     --background-color: #f9f9f9;
     --border-color: #e0e0e0;
-    --link-hover-color: #e31b23; /* 细微的红色高亮 */
+    --link-hover-color: #cc0000; /* 略带红色的高亮，避免与UvA蓝色冲突 */
 }
 
 body {
@@ -19,10 +19,10 @@ body {
 .container {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 20px;
+    padding: 25px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border-top: 5px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-top: 6px solid var(--primary-color);
 }
 
 header {
@@ -32,15 +32,16 @@ header {
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
     color: var(--primary-color);
     margin: 0 0 5px 0;
+    font-weight: 700;
 }
 
 header h2 {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 400;
-    color: #666;
+    color: #555;
     margin: 0;
 }
 
@@ -56,11 +57,13 @@ header h2 {
     border-right: 1px solid var(--border-color);
 }
 
-.sidebar h3 {
-    border-bottom: 2px solid var(--border-color);
+.sidebar h3, .main-content h3 {
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 5px;
     margin-top: 0;
     color: var(--primary-color);
+    font-size: 1.4em;
+    font-weight: 600;
 }
 
 .main-content section {
@@ -79,7 +82,7 @@ header h2 {
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s, text-decoration 0.2s;
 }
 
 a:hover {
@@ -94,6 +97,7 @@ ul {
 
 .contact-info ul li {
     margin-bottom: 10px;
+    font-size: 0.95em;
 }
 
 .contact-info .icon {
@@ -101,6 +105,7 @@ ul {
     width: 20px;
     text-align: center;
     margin-right: 5px;
+    font-weight: bold;
 }
 
 /* -- 教育时间线样式 -- */
@@ -127,7 +132,7 @@ footer {
     padding-top: 20px;
     margin-top: 40px;
     border-top: 1px solid var(--border-color);
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #999;
 }
 
@@ -139,7 +144,7 @@ footer {
     .sidebar {
         padding-right: 0;
         border-right: none;
-        border-bottom: 1px solid var(--border-color); /* 在底部添加分隔线 */
+        border-bottom: 1px solid var(--border-color); 
         padding-bottom: 20px;
     }
     .container {
