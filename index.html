@@ -5,92 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dawei Xiao (肖大维) | Theoretical High-Energy Physics</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="https://via.placeholder.com/16x16?text=DX" type="image/x-icon">
 </head>
 <body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" aria-label="Toggle dark mode" />
+            <div class="slider round"></div>
+        </label>
+        <span class="mode-label">Dark Mode</span>
+    </div>
+
     <div class="container">
-        <header>
-            <h1>Dawei Xiao (肖大维, he/him)</h1>
-            <h2>MSc Student in Theoretical High-Energy Physics</h2>
+        <header class="fade-in">
+            <h1 class="main-title">Dawei Xiao (肖大维, he/him)</h1>
+            <p class="subtitle">MSc Student in Theoretical High-Energy Physics</p>
             <p class="affiliation">University of Amsterdam (UvA), The Netherlands</p>
         </header>
 
-        <main class="content-grid">
+        <main class="content-wrapper">
             
-            <aside class="sidebar">
-                <section class="contact-info">
-                    <h3>Contact & Links 🔗</h3>
-                    <ul>
-                        <li><span class="icon">📧</span> **Primary Email:** <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
-                        <li><span class="icon">🎓</span> **UvA Email:** <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
-                        <li><span class="icon">📄</span> <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank">Curriculum Vitae (CV)</a></li>
-                        <li><span class="icon">💻</span> <a href="[LINK_TO_YOUR_GITHUB]" target="_blank">GitHub Profile</a></li>
-                        <li><span class="icon">💬</span> <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank">Stack Exchange</a></li>
-                        <li><span class="icon">💡</span> <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank">知乎 (Zhihu)</a></li>
-                    </ul>
+            <aside class="sidebar fade-in delay-1">
+                <section class="profile-card">
+                    <img src="https://via.placeholder.com/150x150?text=Dawei+Xiao" alt="Dawei Xiao Profile Picture" class="profile-pic">
+                    <h3>Connect with Dawei</h3>
+                    <div class="social-links">
+                        <a href="mailto:xiaodawei528@gmail.com" target="_blank" aria-label="Email Primary"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:david.xiao@student.uva.nl" target="_blank" aria-label="Email UvA"><i class="fas fa-university"></i></a>
+                        <a href="[LINK_TO_YOUR_CV_PDF]" target="_blank" aria-label="Download CV"><i class="fas fa-file-pdf"></i></a>
+                        <a href="[LINK_TO_YOUR_GITHUB]" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="[LINK_TO_YOUR_STACK_EXCHANGE]" target="_blank" aria-label="Stack Exchange Profile"><i class="fab fa-stack-exchange"></i></a>
+                        <a href="[LINK_TO_YOUR_ZHIHU]" target="_blank" aria-label="Zhihu Profile"><i class="fab fa-zhihu"></i></a>
+                    </div>
                 </section>
-                
-                <section class="personal-interests">
-                    <h3>Outside Interests 💡</h3>
-                    <p>Japanese Sengoku history, supporting **Manchester United** (football fan), playing **RTS games** (Age of Empires IV). Music preference: Xeuphoria.</p>
+
+                <section class="personal-interests card fade-in delay-2">
+                    <h3><i class="fas fa-lightbulb"></i> Beyond Academics</h3>
+                    <p>Enthusiast of Japanese Sengoku history. Passionate **Manchester United** fan. Enjoys **RTS games** (Age of Empires IV) and the ambient soundscapes of **Xeuphoria**.</p>
                 </section>
             </aside>
 
             <div class="main-content">
-                <section class="about">
-                    <h3>About Me</h3>
-                    <p>I am a second-year Master’s student in **Theoretical High-Energy Physics** at the University of Amsterdam (UvA). I hold an MSc in Physics from King's College London and a BEng in Materials Science and Engineering from NPU/QMUL (QMES).</p>
-                    <p>My academic focus is on the foundational questions at the intersection of quantum gravity and cosmology.</p>
+                <section class="about card fade-in delay-3">
+                    <h3><i class="fas fa-user-graduate"></i> About Me</h3>
+                    <p>I am a second-year Master’s student specializing in **Theoretical High-Energy Physics** at the University of Amsterdam (UvA). My academic background includes an MSc in Physics from King's College London and a BEng in Materials Science and Engineering from the NPU/QMUL Joint Program (QMES).</p>
+                    <p>My core academic pursuit lies in unraveling the foundational questions at the intersection of quantum gravity and cosmology, seeking a deeper understanding of the quantum nature of spacetime.</p>
                 </section>
 
-                <section class="research">
-                    <h3>Research Interests 🌌</h3>
-                    <p>My research interests broadly concern the **quantum aspects of de Sitter spacetime**. Specific areas of focus include:</p>
-                    <ul class="research-list">
-                        <li>**No-Boundary Wave Function**</li>
-                        <li>**Path-Integral Formulations of Quantum Cosmology**</li>
-                        <li>**dS Holography Proposals** (e.g., dS/CFT)</li>
+                <section class="research card fade-in delay-4">
+                    <h3><i class="fas fa-atom"></i> Research Interests</h3>
+                    <p>My research is primarily centered on the **quantum aspects of de Sitter spacetime**. Key areas of investigation include:</p>
+                    <ul class="fancy-list">
+                        <li><i class="fas fa-chevron-right"></i> **No-Boundary Wave Function**</li>
+                        <li><i class="fas fa-chevron-right"></i> **Path-Integral Formulations of Quantum Cosmology**</li>
+                        <li><i class="fas fa-chevron-right"></i> **dS Holography Proposals** (e.g., dS/CFT correspondence)</li>
                     </ul>
                 </section>
 
-                <section class="education">
-                    <h3>Education 🎓</h3>
+                <section class="education card fade-in delay-5">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                     <div class="timeline">
                         <div class="timeline-item">
                             <span class="year">2024 – 2026</span>
-                            <p><strong>MSc in Physics and Astronomy</strong> (Theoretical High-Energy Physics)</p>
-                            <p>University of Amsterdam (UvA), The Netherlands</p>
+                            <div class="timeline-content">
+                                <h4>MSc in Physics and Astronomy</h4>
+                                <p><em>(Theoretical High-Energy Physics)</em></p>
+                                <p>University of Amsterdam (UvA), The Netherlands</p>
+                            </div>
                         </div>
                         <div class="timeline-item">
                             <span class="year">2022 – 2023</span>
-                            <p><strong>MSc in Physics</strong></p>
-                            <p>King's College London (KCL), United Kingdom</p>
+                            <div class="timeline-content">
+                                <h4>MSc in Physics</h4>
+                                <p>King's College London (KCL), United Kingdom</p>
+                            </div>
                         </div>
                         <div class="timeline-item">
                             <span class="year">2018 – 2022</span>
-                            <p><strong>BEng, Material Science and Engineering</strong></p>
-                            <p>Northwestern Polytechnical University (NPU) / QMUL, China/UK (QMES)</p>
+                            <div class="timeline-content">
+                                <h4>BEng, Material Science and Engineering</h4>
+                                <p>Northwestern Polytechnical University (NPU) / QMUL, China/UK (QMES Joint Program)</p>
+                            </div>
                         </div>
                     </div>
                 </section>
                 
-                <section class="notes-projects">
-                    <h3>Notes & Resources 📝</h3>
-                    <ul class="notes-list">
-                        <li>
-                            <p><strong>Quantum Field Theory Note</strong> (Draft Version—Covering Only Selected Topics) [<a href="[LINK_TO_QFT_NOTES]" target="_blank">Access Draft</a>]</p>
-                        </li>
-                        <li>
-                            <p><strong>Newman-Janis Algorithm</strong> Implementation/Notes [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">Access Notes</a>]</p>
-                        </li>
+                <section class="notes-projects card fade-in delay-6">
+                    <h3><i class="fas fa-book"></i> Notes & Resources</h3>
+                    <ul class="fancy-list">
+                        <li><i class="fas fa-file-alt"></i> **Quantum Field Theory Note** (Draft Version—Covering Only Selected Topics) [<a href="[LINK_TO_QFT_NOTES]" target="_blank">Access Draft <i class="fas fa-external-link-alt"></i></a>]</li>
+                        <li><i class="fas fa-code"></i> **Newman-Janis Algorithm** Implementation/Notes [<a href="[LINK_TO_NJ_ALGO_NOTES]" target="_blank">Access Notes <i class="fas fa-external-link-alt"></i></a>]</li>
                     </ul>
                 </section>
             </div>
         </main>
 
-        <footer>
-            <p>&copy; 2025 Dawei Xiao. Last updated: [DATE].</p>
+        <footer class="fade-in delay-7">
+            <p>&copy; 2025 Dawei Xiao. All rights reserved. Last updated: <span id="last-updated"></span></p>
         </footer>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
