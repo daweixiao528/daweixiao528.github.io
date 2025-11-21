@@ -221,3 +221,459 @@
 
         /* --- Main Content --- */
         .main-content section {
+            margin-bottom: 32px;
+            padding: 18px 18px 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(227, 223, 242, 0.7);
+            background: radial-gradient(circle at 0 0, rgba(250, 245, 255, 0.7), #ffffff);
+            box-shadow: 0 8px 18px rgba(81, 38, 120, 0.06);
+            opacity: 0;
+            transform: translateY(6px);
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+
+        .main-content section:nth-child(2) { animation-delay: 0.06s; }
+        .main-content section:nth-child(3) { animation-delay: 0.12s; }
+        .main-content section:nth-child(4) { animation-delay: 0.18s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+            color: #3A2068;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-content h3 span.section-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 999px;
+            background: rgba(106, 13, 173, 0.08);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .main-content p {
+            margin: 0 0 10px;
+            font-size: 0.93rem;
+            color: var(--text-main);
+        }
+
+        .main-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, rgba(255, 224, 201, 0.7), rgba(255, 255, 255, 0.4));
+            padding: 3px 7px;
+            border-radius: 8px;
+        }
+
+        /* --- Research tags --- */
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .research-tags li {
+            font-size: 0.82rem;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: var(--chip-bg);
+            color: #4A347B;
+            border: 1px solid rgba(106, 13, 173, 0.2);
+        }
+
+        /* --- Education Timeline --- */
+        .timeline {
+            margin-top: 6px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 16px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 3px;
+            top: 4px;
+            bottom: -6px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary-color), rgba(106, 13, 173, 0));
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(106, 13, 173, 0.12);
+        }
+
+        .timeline-item:last-child::before {
+            bottom: 4px;
+        }
+
+        .timeline-item .year {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 9px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            background: rgba(106, 13, 173, 0.06);
+            color: #5A3A9A;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item p {
+            margin: 2px 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Notes & Projects --- */
+        .notes-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 2px 0 0;
+        }
+
+        .notes-list li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .notes-list p {
+            margin: 0;
+        }
+
+        .note-label {
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(106, 13, 173, 0.07);
+            color: #4C2F81;
+            margin-left: 4px;
+        }
+
+        /* --- Links --- */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transition: width 0.22s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Footer --- */
+        footer {
+            position: relative;
+            text-align: center;
+            padding-top: 18px;
+            margin-top: 26px;
+            border-top: 1px dashed rgba(185, 170, 222, 0.7);
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        footer span.heart {
+            color: var(--accent-color);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 880px) {
+            header {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 16px 22px;
+                border-radius: 18px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .sidebar {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-soft);
+                padding-bottom: 18px;
+            }
+
+            .avatar-circle {
+                width: 70px;
+                height: 70px;
+                font-size: 1.2rem;
+            }
+
+            header {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 520px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tagline-badge {
+                margin-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <div class="container">
+        <header>
+            <div class="avatar-circle">
+                DX
+            </div>
+            <div class="header-main">
+                <h1>David Xiao (肖大维)</h1>
+                <div class="name-sub">he / him</div>
+                <h2>MSc Student in Theoretical High-Energy Physics</h2>
+                <p class="affiliation">Institute for Theoretical Physics, University of Amsterdam (UvA), The Netherlands</p>
+                <div class="tagline-badge">
+                    <i class="fas fa-atom"></i>
+                    Curious about quantum aspects of our universe.
+                </div>
+            </div>
+        </header>
+
+        <main class="content-grid">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <section class="contact-info">
+                    <h3>Contact &amp; Links</h3>
+                    <ul>
+                        <li>
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <div>
+                                <span class="contact-label">Email (Primary):</span><br>
+                                <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fas fa-university"></i></span>
+                            <div>
+                                <span class="contact-label">Email (UvA):</span><br>
+                                <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                            <div>
+                                <span class="contact-label">CV:</span><br>
+                                <a
+                                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/CV_Template__Copy.pdf&embedded=true"
+                                    target="_blank">
+                                    My CV (PDF, viewer)
+                                </a>
+                                <small>
+                                    <a href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/CV_Template__Copy.pdf"
+                                       target="_blank">Direct download</a>
+                                </small>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-divider">Online Profiles</li>
+
+                        <li>
+                            <span class="icon"><i class="fab fa-stack-exchange"></i></span>
+                            <div>
+                                <a href="https://physics.stackexchange.com/users/327298/david-shaw" target="_blank">
+                                    Physics Stack Exchange
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fab fa-zhihu"></i></span>
+                            <div>
+                                <a href="https://www.zhihu.com/people/xiaodawei-42" target="_blank">知乎 · 肖大维</a>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- About -->
+                <section class="about">
+                    <h3>
+                        <span class="section-icon"><i class="fas fa-user"></i></span>
+                        About Me
+                    </h3>
+                    <p>
+                        I’m currently a second-year Master’s student in
+                        <span class="highlight-text">Theoretical High-Energy Physics</span>
+                        at the University of Amsterdam. I hold a Master’s degree in Physics from King’s College London
+                        and a Bachelor’s degree in Materials Science and Engineering from QMES, NPU.
+                    </p>
+                    <p>
+                        Outside of physics, I’m into Japanese Sengoku history and football — I’ve supported
+                        Manchester United for years. In my spare time, I enjoy RTS games like <em>Age of Empires IV</em>,
+                        and I often unwind with light music.
+                        <a href="https://www.youtube.com/channel/UC8FpyBnxcUhu_bYmmJ0Yxmw" target="_blank">Xeuphoria</a>
+                        is my favourite composer.
+                    </p>
+                </section>
+
+                <!-- Research -->
+                <section class="research">
+                    <h3>
+                        <span class="section-icon"><i class="fas fa-microscope"></i></span>
+                        Research Interests
+                    </h3>
+                    <p>
+                        My research interests broadly concern the quantum aspects of de Sitter spacetime,
+                        with particular focus on path-integral formulations of quantum cosmology, the role of
+                        the observer, and dS holography proposals.
+                    </p>
+                    <ul class="research-tags">
+                        <li>Quantum aspects of de Sitter</li>
+                        <li>Path-integral quantum cosmology</li>
+                        <li>Observer in cosmology</li>
+                        <li>de Sitter holography</li>
+                    </ul>
+                </section>
+
+                <!-- Education -->
+                <section class="education">
+                    <h3>
+                        <span class="section-icon"><i class="fas fa-graduation-cap"></i></span>
+                        Education
+                    </h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="year">2024 – 2026</span>
+                            <p><strong>MSc in Physics and Astronomy (Theoretical Physics track)</strong></p>
+                            <p>University of Amsterdam (UvA), The Netherlands</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2022 – 2023</span>
+                            <p><strong>MSc in Physics</strong></p>
+                            <p>King's College London (KCL), United Kingdom</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2018 – 2022</span>
+                            <p><strong>BEng, Materials Science and Engineering</strong></p>
+                            <p>NPU/QMUL Joint Program (QMES)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notes & Projects -->
+                <section class="notes-projects">
+                    <h3>
+                        <span class="section-icon"><i class="fas fa-book-open"></i></span>
+                        Notes &amp; Projects
+                    </h3>
+                    <p class="section-subtitle">
+                        Some of my notes are still in draft form; I’m gradually polishing and expanding them.
+                    </p>
+                    <ul class="notes-list">
+                        <li>
+                            <p>
+                                <a
+                                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf&embedded=true"
+                                    target="_blank">
+                                    <strong>Quantum Field Theory Note</strong>
+                                </a>
+                                <span class="note-label">draft</span>
+                                – covering selected topics only.
+                                [
+                                <a
+                                    href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf"
+                                    target="_blank">PDF</a>
+                                ]
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a
+                                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf&embedded=true"
+                                    target="_blank">
+                                    <strong>Newman–Janis Algorithm Notes</strong>
+                                </a>
+                                [
+                                <a
+                                    href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf"
+                                    target="_blank">PDF</a>
+                                ]
+                            </p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                &copy; 2025 Dawei Xiao. All rights reserved.
+                <br>
+                Built with a bit of LaTeX energy and a bit of <span class="heart">♥</span>.
+            </p>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
