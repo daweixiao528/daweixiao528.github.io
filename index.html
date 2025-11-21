@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>David Xiao (肖大维) | Homepage </title>
+    <title>David Xiao (肖大维) | Theoretical Physics</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="icon" href="https://via.placeholder.com/16x16?text=DX" type="image/x-icon">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* --- Color Variables & Reset (Warm Palette) --- */
+        /* --- Color Variables & Reset (Modern Tech Palette) --- */
         :root {
-            --primary-color: #6A0DAD; /* 深紫色 (Deep Purple) */
+            --primary-color: #2c3e50; /* 标题/强调色：深蓝/靛色 */
+            --highlight-color: #3498db; /* 高亮/链接色：亮青色 (Blue) */
             --text-color: #333;
-            --background-color-page: #F3F1F0; /* 页面背景：浅米白 (Warm Off-White) */
-            --background-color-card: #FFFFFF; /* 容器背景：干净的白色，增强对比度 */
-            --border-color: #e0e0e0;
-            --link-hover-color: #FF6700; /* 橙色高亮，与紫色形成对比 */
+            --background-color-page: #f9f9f9; /* 页面背景：极浅灰 */
+            --background-color-card: #FFFFFF; /* 容器背景：干净的白色 */
+            --border-color: #ecf0f1; /* 浅灰/分割线 */
+            --link-hover-color: #e67e22; /* 链接悬停：橙色 */
+            --tag-bg-color: #ecf0f1;
+            --tag-text-color: var(--primary-color);
         }
 
         body {
@@ -31,69 +34,83 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 30px;
             background-color: var(--background-color-card);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            border-top: 5px solid var(--primary-color);
-            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 柔和的阴影 */
+            border-radius: 12px;
         }
 
         /* --- Header --- */
         header {
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 3px solid var(--highlight-color); /* 醒目的分割线 */
+            text-align: center;
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             color: var(--primary-color);
             margin: 0 0 5px 0;
+            font-weight: 800; /* 加粗 */
         }
 
         header h2 {
-            font-size: 1.2em;
-            font-weight: 400;
-            color: #666;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--highlight-color);
             margin: 0;
         }
+        
+        .affiliation {
+            color: #7f8c8d;
+            font-size: 1em;
+            margin-top: 5px;
+        }
 
-        /* --- Main Layout Grid (SWAPPED) --- */
+        /* --- Main Layout Grid --- */
         .content-grid {
-            /* 侧边栏 (1fr) 在左，主内容 (3fr) 在右 */
+            /* 主内容 (3fr) 在左，联系方式 (1fr) 在右 */
             display: grid;
-            grid-template-columns: 1fr 3fr;
+            grid-template-columns: 3fr 1fr;
             gap: 40px;
+            margin-top: 40px;
         }
 
-        /* --- Sidebar (Contact & Links Only) --- */
-        .sidebar {
-            /* 侧边栏现在在左侧，所以移除左侧边框，并添加右侧边框 */
-            padding-right: 20px;
-            padding-left: 0;
-            border-right: 1px solid var(--border-color);
-            border-left: none; 
+        /* --- Content Sections --- */
+        .main-content section, .sidebar section {
+            margin-bottom: 30px;
+            background-color: var(--background-color-card);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color); /* 增加轻微边框，强化卡片感 */
         }
 
-        .sidebar h3 {
+        .main-content h3, .sidebar h3 {
+            color: var(--primary-color);
+            font-size: 1.5em;
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 5px;
             margin-top: 0;
-            color: var(--primary-color);
             margin-bottom: 15px;
         }
-
+        
+        /* --- Sidebar (Contact & Links) --- */
+        .sidebar {
+            /* 侧边栏现在在右侧 */
+            padding-left: 0;
+        }
+        
         /* Contact/Link List Styling */
         .contact-info ul {
             list-style: none;
             padding-left: 0;
-            margin-bottom: 30px;
         }
         
         .contact-info ul li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 0.95em;
         }
 
@@ -102,62 +119,69 @@
             width: 20px;
             text-align: center;
             margin-right: 8px;
-            color: var(--primary-color);
+            color: var(--highlight-color); /* 使用高亮色 */
         }
         
-        /* --- Main Content --- */
-        .main-content h3 {
-             color: var(--primary-color);
-             font-size: 1.5em;
-             margin-bottom: 15px;
-        }
-        
-        .main-content section {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed var(--border-color);
-        }
-
-        .main-content section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        /* Research List */
-        .research-list {
-            list-style: disc;
-            padding-left: 20px;
-        }
-
-        /* Notes List (Simple list style) */
-        .notes-list {
+        /* --- Research Tags --- */
+        .tag-list {
             list-style: none;
             padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-list li {
+            background-color: var(--tag-bg-color);
+            color: var(--tag-text-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .tag-list li:hover {
+             background-color: var(--highlight-color);
+             color: white;
         }
 
         /* --- Education Timeline --- */
         .timeline-item {
             margin-bottom: 20px;
             padding-left: 15px;
-            border-left: 3px solid var(--primary-color);
+            border-left: 3px solid var(--highlight-color); /* 使用高亮色 */
         }
 
         .timeline-item .year {
             display: block;
-            font-weight: bold;
-            color: #666;
+            font-weight: 700;
+            color: #7f8c8d;
             margin-bottom: 5px;
-            font-size: 0.95em;
+            font-size: 0.9em;
         }
 
         .timeline-item p {
             margin: 0 0 3px 0;
         }
+        
+        /* --- Notes List (Project Style) --- */
+        .notes-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .notes-list li {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .notes-list li:last-child {
+            border-bottom: none;
+        }
 
         /* --- Links --- */
         a {
-            color: var(--primary-color);
+            color: var(--highlight-color);
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -173,21 +197,21 @@
             padding-top: 20px;
             margin-top: 40px;
             border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #999;
         }
 
         /* --- Responsive Adjustment --- */
         @media (max-width: 800px) {
             .content-grid {
-                /* 在小屏幕上，侧边栏（现在是左侧）将首先堆叠在顶部 */
+                /* 在小屏幕上，侧边栏（现在是右侧）将堆叠在主内容下方 */
                 grid-template-columns: 1fr;
             }
             .sidebar {
-                padding-right: 0;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding-bottom: 20px;
+                order: 2; /* 确保侧边栏在小屏幕上堆叠在下方 */
+            }
+            .main-content {
+                order: 1;
             }
             .container {
                 margin: 20px auto;
@@ -199,53 +223,37 @@
 <body>
     <div class="container">
         <header>
-            <h1>David Xiao (肖大维, he/him)</h1>
-            <h2>MSc Student in Theoretical High-Energy Physics</h2>
+            <h1>David Xiao (肖大维)</h1>
+            <h2>Theoretical High-Energy Physics - MSc Student</h2>
             <p class="affiliation">University of Amsterdam (UvA), The Netherlands</p>
         </header>
 
         <main class="content-grid">
             
-            <aside class="sidebar">
-                <section class="contact-info">
-                    <h3>Contact & Links</h3>
-                    <ul>
-                        <li><span class="icon"><i class="fas fa-envelope"></i></span> **Email (Primary):** <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
-                        <li><span class="icon"><i class="fas fa-university"></i></span> **Email (UvA):** <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
-                        <li>
-    <span class="icon"><i class="fas fa-file-pdf"></i></span> 
-    <a 
-        href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/CV_Template__Copy.pdf&embedded=true" 
-        target="_blank">
-        My CV (PDF)
-    </a>
-</li>
-                        <li style="margin-top: 20px; font-weight: 600;">-- Online Profiles --</li>
-                        <li><span class="icon"><i class="fab fa-stack-exchange"></i></span> <a href="https://physics.stackexchange.com/users/327298/david-shaw" target="_blank">Stack Exchange</a></li>
-                        <li><span class="icon"><i class="fab fa-zhihu"></i></span> <a href="https://www.zhihu.com/people/xiaodawei-42" target="_blank">知乎</a></li>
-                    </ul>
-                </section>
-            </aside>
-
             <div class="main-content">
                 <section class="about">
-                    <h3>About Me</h3>
-                    <p>I’m currently a second-year Master’s student in **Theoretical High-Energy Physics** at the University of Amsterdam. I hold a Master’s degree in Physics from King’s College London and a Bachelor’s degree in Materials Science and Engineering from QMES, NPU.</p>
-                    <p>Outside of physics, I have an interest in Japanese Sengoku history. I’m also a passionate football fan and have supported Manchester United for years. In my free time, I enjoy playing RTS games like Age of Empires IV, and I often unwind by listening to light music—<a href="https://www.youtube.com/channel/UC8FpyBnxcUhu_bYmmJ0Yxmw">Xeuphoria</a> is my favorite composer.</p>
+                    <h3><i class="fas fa-user-circle"></i> About Me</h3>
+                    <p>I’m currently a second-year Master’s student focused on **Theoretical High-Energy Physics** at the University of Amsterdam. My academic journey includes an MSc in Physics from King’s College London and a background in Materials Science and Engineering.</p>
+                    <p>When not calculating, I indulge in Japanese Sengoku history and am a dedicated football fan (Go Red Devils!). I also enjoy playing RTS games like Age of Empires IV and listening to light electronic music—<a href="https://www.youtube.com/channel/UC8FpyBnxcUhu_bYmmJ0Yxmw" target="_blank">Xeuphoria</a> is a favorite composer of mine.</p>
                 </section>
                 
                 <section class="research">
-                    <h3>Research Interests</h3>
-                    <p>My research interests broadly concern the quantum aspects of de Sitter spacetime, with particular focus on the path-integral formulations of quantum cosmology, the rule of observer and dS holography proposals.
+                    <h3><i class="fas fa-atom"></i> Research Focus</h3>
+                    <p>My interests revolve around the quantum aspects of de Sitter spacetime, with particular focus on the following key areas:</p>
+                    <ul class="tag-list">
+                        <li>dS Quantum Cosmology</li>
+                        <li>Path-Integral Formulation</li>
+                        <li>Role of Observer in Cosmology</li>
+                        <li>dS/CFT Holography Proposals</li>
                     </ul>
                 </section>
                 
                 <section class="education">
-                    <h3>Education</h3>
+                    <h3><i class="fas fa-graduation-cap"></i> Academic Journey</h3>
                     <div class="timeline">
                         <div class="timeline-item">
                             <span class="year">2024 – 2026</span>
-                            <p><strong>MSc in Physics and Astronomy (Theoretical physics track)</strong></p>
+                            <p><strong>MSc in Physics and Astronomy (Theoretical track)</strong></p>
                             <p>University of Amsterdam (UvA), The Netherlands</p>
                         </div>
                         <div class="timeline-item">
@@ -261,40 +269,64 @@
                     </div>
                 </section>
                 <section class="notes-projects">
-    <h3>Notes & Projects</h3>
-    <ul class="notes-list">
-        <li>
-            <p>
-                <a 
-                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf&embedded=true" 
-                    target="_blank">
-                    <strong>Quantum Field Theory Note</strong>
-                </a> 
-                (Draft Version—Covering Only Selected Topics) 
-                [<a 
-                    href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf" 
-                    target="_blank">PDF</a>]
-            </p>
-        </li>
-        <li>
-            <p>
-                <a 
-                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf&embedded=true" 
-                    target="_blank">
-                    <strong>Newman-Janis Algorithm Notes</strong>
-                </a> 
-                [<a 
-                    href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf" 
-                    target="_blank">PDF</a>]
-            </p>
-        </li>
-    </ul>
-</section>
+                    <h3><i class="fas fa-book-open"></i> Selected Notes & Projects</h3>
+                    <ul class="notes-list">
+                        <li>
+                            <p>
+                                <i class="fas fa-file-alt"></i> 
+                                <a 
+                                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf&embedded=true" 
+                                    target="_blank">
+                                    **Quantum Field Theory Note**
+                                </a> 
+                                (Draft Version, Selected Topics) 
+                                [<a 
+                                    href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf" 
+                                    target="_blank">PDF</a>]
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-file-alt"></i> 
+                                <a 
+                                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf&embedded=true" 
+                                    target="_blank">
+                                    **Newman-Janis Algorithm Notes**
+                                </a> 
+                                (Advanced Topic in GR)
+                                [<a 
+                                    href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf" 
+                                    target="_blank">PDF</a>]
+                            </p>
+                        </li>
+                    </ul>
+                </section>
             </div>
+            
+            <aside class="sidebar">
+                <section class="contact-info">
+                    <h3><i class="fas fa-link"></i> Connect</h3>
+                    <ul>
+                        <li><span class="icon"><i class="fas fa-envelope"></i></span> **Primary:** <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a></li>
+                        <li><span class="icon"><i class="fas fa-university"></i></span> **UvA:** <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a></li>
+                        <li style="margin-top: 20px;"><span class="icon"><i class="fas fa-file-pdf"></i></span>  **My CV:**
+                            <a 
+                                href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/CV_Template__Copy.pdf&embedded=true" 
+                                target="_blank">
+                                View PDF
+                            </a>
+                        </li>
+                        <li style="margin-top: 25px; font-weight: 600; color: var(--primary-color);">-- Online Profiles --</li>
+                        <li><span class="icon"><i class="fab fa-stack-exchange"></i></span> <a href="https://physics.stackexchange.com/users/327298/david-shaw" target="_blank">Physics Stack Exchange</a></li>
+                        <li><span class="icon"><i class="fab fa-zhihu"></i></span> <a href="https://www.zhihu.com/people/xiaodawei-42" target="_blank">知乎 / Zhihu</a></li>
+                    </ul>
+                </section>
+            </aside>
+
         </main>
 
         <footer>
-            <p>&copy; 2025 Dawei Xiao. All rights reserved.</p>
+            <p>Made with $\text{Latex}$ love and $\text{Inter}$ font. &copy; 2025 Dawei Xiao.</p>
         </footer>
     </div>
 </body>
