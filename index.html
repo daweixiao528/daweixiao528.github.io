@@ -3,399 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Xiao (肖大维) | Homepage </title>
+    <title>David Xiao (肖大维) | Homepage</title>
 
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://via.placeholder.com/16x16?text=DX" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* --- Color System (Slightly more vivid) --- */
         :root {
-            --primary-color: #6A0DAD;      /* Deep purple */
-            --accent-color: #FF6A3D;       /* Warm orange */
-            --soft-accent: #FFE3D1;        /* Light warm orange */
-            --text-main: #262626;
-            --text-muted: #666666;
-            --bg-page: #F5F2FA;            /* Soft purple-tinted background */
-            --bg-card: #FFFFFF;
-            --border-soft: #E3DFF2;
-            --chip-bg: #F6F0FF;
-            --link-hover: #FF6A3D;
+            --primary: #7C3AED;            /* 紫色主色 */
+            --primary-soft: rgba(124, 58, 237, 0.18);
+            --accent: #F97316;             /* 橙色强调 */
+            --accent-soft: rgba(249, 115, 22, 0.15);
+            --bg-deep: #050816;            /* 整体深色背景 */
+            --text-main: #0F172A;
+            --text-muted: #6B7280;
+            --border-soft: rgba(148, 163, 184, 0.4);
+            --chip-bg: rgba(15, 23, 42, 0.04);
+            --card-bg: rgba(248, 250, 252, 0.85);
         }
 
-        /* --- Global Reset-ish --- */
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            padding: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: var(--text-main);
-            background:
-                radial-gradient(circle at 0% 0%, rgba(255, 209, 170, 0.6), transparent 55%),
-                radial-gradient(circle at 100% 100%, rgba(155, 105, 255, 0.4), transparent 55%),
-                var(--bg-page);
+            background: radial-gradient(circle at 0% 0%, #1d2753 0, #050816 45%, #020617 100%);
             min-height: 100vh;
         }
 
-        .page-wrap {
-            padding: 24px 16px 40px;
-        }
-
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 28px 28px 32px;
-            background-color: var(--bg-card);
-            border-radius: 22px;
-            box-shadow:
-                0 20px 40px rgba(41, 13, 77, 0.18),
-                0 0 0 1px rgba(255, 255, 255, 0.8);
-            border-top: 5px solid var(--primary-color);
-            position: relative;
+        /* 彩色背景装饰层 */
+        .bg-orbit {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: -1;
             overflow: hidden;
         }
 
-        .container::before {
+        .bg-orbit::before,
+        .bg-orbit::after {
+            content: "";
+            position: absolute;
+            filter: blur(40px);
+            opacity: 0.8;
+        }
+
+        .bg-orbit::before {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(129, 140, 248, 0.9), transparent 60%);
+            top: -80px;
+            right: 5%;
+        }
+
+        .bg-orbit::after {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.85), transparent 60%);
+            bottom: -80px;
+            left: -40px;
+        }
+
+        .page-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+        }
+
+        .glass-panel {
+            position: relative;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.86));
+            border-radius: 26px;
+            padding: 22px 24px 28px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            box-shadow:
+                    0 30px 80px rgba(15, 23, 42, 0.8),
+                    0 0 0 1px rgba(148, 163, 184, 0.35);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            color: #E5E7EB;
+            overflow: hidden;
+        }
+
+        .glass-panel::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 120% -20%, rgba(255, 106, 61, 0.14), transparent 60%);
+            background:
+                radial-gradient(circle at 10% 0%, rgba(96, 165, 250, 0.16), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(249, 115, 22, 0.13), transparent 55%);
+            opacity: 0.9;
             pointer-events: none;
         }
 
-        /* --- Header --- */
-        header {
+        .glass-inner {
             position: relative;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin-bottom: 28px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid var(--border-soft);
+            z-index: 1;
         }
 
-        .avatar-circle {
+        /* 顶部 Header + 导航 */
+        .site-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 18px 24px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.9);
+            margin-bottom: 14px;
+        }
+
+        .avatar {
             flex-shrink: 0;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 20%, #FFE0F8, #6A0DAD);
+            width: 78px;
+            height: 78px;
+            border-radius: 24px;
+            background:
+                    radial-gradient(circle at 20% 0%, #f9fafb, transparent 55%),
+                    radial-gradient(circle at 120% 120%, #f97316, transparent 50%),
+                    linear-gradient(135deg, #4f46e5, #ec4899);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
             font-weight: 700;
-            font-size: 1.4rem;
-            letter-spacing: 0.06em;
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
+            font-size: 1.6rem;
+            color: #f9fafb;
+            box-shadow:
+                    0 18px 40px rgba(15, 23, 42, 0.9),
+                    0 0 0 1px rgba(248, 250, 252, 0.18);
         }
 
-        /* If you have a real photo, replace the div with <img class="avatar-circle" src="xxx"> */
+        /* 如果有真人照片，可以换成 <img class="avatar" src="xxx"> */
 
         .header-main {
             flex: 1;
+            min-width: 220px;
         }
 
-        header h1 {
-            font-size: 2.1rem;
-            margin: 0 0 4px 0;
-            color: #1E1233;
-            letter-spacing: 0.02em;
+        .header-main h1 {
+            margin: 0 0 4px;
+            font-size: 2rem;
+            letter-spacing: 0.025em;
+            color: #F9FAFB;
         }
 
-        .name-sub {
-            font-size: 0.94rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
+        .header-subline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+            align-items: center;
+            margin-bottom: 6px;
         }
 
-        header h2 {
-            font-size: 1.05rem;
+        .header-subline span {
+            font-size: 0.9rem;
+            color: #CBD5F5;
+        }
+
+        .pronoun-pill {
+            padding: 3px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.75);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #E5E7EB;
+        }
+
+        .header-main h2 {
+            margin: 0 0 6px;
+            font-size: 1rem;
             font-weight: 500;
-            margin: 0 0 6px 0;
-            color: var(--primary-color);
+            color: #C4B5FD;
         }
 
         .affiliation {
             margin: 0;
-            font-size: 0.95rem;
-            color: var(--text-muted);
+            font-size: 0.9rem;
+            color: #9CA3AF;
         }
 
-        .tagline-badge {
+        .tagline {
+            margin-top: 8px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             padding: 4px 10px;
             border-radius: 999px;
             font-size: 0.78rem;
-            font-weight: 500;
-            background: rgba(255, 106, 61, 0.08);
-            color: #B44A1C;
-            margin-top: 8px;
+            background: linear-gradient(90deg, rgba(55, 65, 81, 0.9), rgba(30, 64, 175, 0.8));
+            box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.5);
         }
 
-        .tagline-badge i {
-            font-size: 0.82rem;
+        .tagline i {
+            color: #FDE68A;
         }
 
-        /* --- Layout Grid --- */
-        .content-grid {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 2.4fr);
-            gap: 32px;
-        }
-
-        /* --- Sidebar --- */
-        .sidebar {
-            padding-right: 18px;
-            border-right: 1px solid var(--border-soft);
-        }
-
-        .sidebar h3 {
-            margin: 0 0 14px;
-            font-size: 1.05rem;
-            color: #3A2068;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sidebar h3::before {
-            content: "";
-            width: 4px;
-            height: 18px;
-            border-radius: 999px;
-            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
-        }
-
-        .contact-info ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0 0 24px;
-        }
-
-        .contact-info ul li {
-            margin-bottom: 10px;
-            font-size: 0.92rem;
-            line-height: 1.5;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .contact-info .icon {
-            width: 20px;
-            text-align: center;
-            margin-top: 3px;
-            color: var(--primary-color);
-        }
-
-        .contact-label {
-            font-weight: 500;
-            color: #40345A;
-        }
-
-        .sidebar small {
-            display: block;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-top: 6px;
-        }
-
-        .sidebar-divider {
-            margin: 16px 0 10px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            opacity: 0.8;
-        }
-
-        /* --- Main Content --- */
-        .main-content section {
-            margin-bottom: 32px;
-            padding: 18px 18px 20px;
-            border-radius: 14px;
-            border: 1px solid rgba(227, 223, 242, 0.7);
-            background: radial-gradient(circle at 0 0, rgba(250, 245, 255, 0.7), #ffffff);
-            box-shadow: 0 8px 18px rgba(81, 38, 120, 0.06);
-            opacity: 0;
-            transform: translateY(6px);
-            animation: fadeInUp 0.4s ease-out forwards;
-        }
-
-        .main-content section:nth-child(2) { animation-delay: 0.06s; }
-        .main-content section:nth-child(3) { animation-delay: 0.12s; }
-        .main-content section:nth-child(4) { animation-delay: 0.18s; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .main-content h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.15rem;
-            color: #3A2068;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .main-content h3 span.section-icon {
-            width: 26px;
-            height: 26px;
-            border-radius: 999px;
-            background: rgba(106, 13, 173, 0.08);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            color: var(--primary-color);
-        }
-
-        .section-subtitle {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .main-content p {
-            margin: 0 0 10px;
-            font-size: 0.93rem;
-            color: var(--text-main);
-        }
-
-        .main-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight-text {
-            background: linear-gradient(120deg, rgba(255, 224, 201, 0.7), rgba(255, 255, 255, 0.4));
-            padding: 3px 7px;
-            border-radius: 8px;
-        }
-
-        /* --- Research tags --- */
-        .research-tags {
+        .top-nav {
+            flex-shrink: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0 0;
-            padding: 0;
-            list-style: none;
+            gap: 6px 14px;
+            justify-content: flex-end;
         }
 
-        .research-tags li {
-            font-size: 0.82rem;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: var(--chip-bg);
-            color: #4A347B;
-            border: 1px solid rgba(106, 13, 173, 0.2);
-        }
-
-        /* --- Education Timeline --- */
-        .timeline {
-            margin-top: 6px;
-        }
-
-        .timeline-item {
+        .top-nav a {
             position: relative;
-            padding-left: 16px;
-            margin-bottom: 16px;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: 3px;
-            top: 4px;
-            bottom: -6px;
-            width: 2px;
-            background: linear-gradient(180deg, var(--primary-color), rgba(106, 13, 173, 0));
-        }
-
-        .timeline-item::after {
-            content: "";
-            position: absolute;
-            left: -1px;
-            top: 3px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #fff;
-            border: 2px solid var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(106, 13, 173, 0.12);
-        }
-
-        .timeline-item:last-child::before {
-            bottom: 4px;
-        }
-
-        .timeline-item .year {
-            display: inline-flex;
-            align-items: center;
-            padding: 2px 9px;
-            border-radius: 999px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            background: rgba(106, 13, 173, 0.06);
-            color: #5A3A9A;
-            margin-bottom: 4px;
-        }
-
-        .timeline-item p {
-            margin: 2px 0;
-            font-size: 0.9rem;
-        }
-
-        /* --- Notes & Projects --- */
-        .notes-list {
-            list-style: none;
-            padding-left: 0;
-            margin: 2px 0 0;
-        }
-
-        .notes-list li {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .notes-list p {
-            margin: 0;
-        }
-
-        .note-label {
-            font-size: 0.8rem;
-            padding: 2px 8px;
-            border-radius: 999px;
-            background: rgba(106, 13, 173, 0.07);
-            color: #4C2F81;
-            margin-left: 4px;
-        }
-
-        /* --- Links --- */
-        a {
-            color: var(--primary-color);
+            font-size: 0.85rem;
+            color: #E5E7EB;
             text-decoration: none;
-            position: relative;
-            transition: color 0.2s ease;
+            padding: 4px 0;
+            opacity: 0.85;
         }
 
-        a::after {
+        .top-nav a::after {
             content: "";
             position: absolute;
             left: 0;
@@ -403,276 +229,653 @@
             width: 0;
             height: 2px;
             border-radius: 999px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            background: linear-gradient(90deg, #a855f7, #f97316);
             transition: width 0.22s ease;
         }
 
-        a:hover {
-            color: var(--link-hover);
+        .top-nav a:hover {
+            opacity: 1;
         }
 
-        a:hover::after {
+        .top-nav a:hover::after {
             width: 100%;
         }
 
-        /* --- Footer --- */
-        footer {
-            position: relative;
+        /* 主体布局 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 2.1fr);
+            gap: 22px;
+            margin-top: 16px;
+        }
+
+        /* 侧边栏卡片 */
+        .sidebar-card {
+            background: radial-gradient(circle at 0 0, rgba(251, 191, 36, 0.18), transparent 60%),
+                        linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.98));
+            border-radius: 20px;
+            padding: 16px 16px 18px;
+            border: 1px solid rgba(75, 85, 99, 0.9);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
+        }
+
+        .sidebar-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 10px;
+            font-size: 0.96rem;
+            font-weight: 500;
+            color: #E5E7EB;
+        }
+
+        .sidebar-title span.icon-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            background: radial-gradient(circle at 30% 0, #F9FAFB, #F97316);
+            color: #111827;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 12px;
+            font-size: 0.88rem;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin-bottom: 10px;
+        }
+
+        .contact-list i {
+            margin-top: 3px;
+            width: 18px;
             text-align: center;
-            padding-top: 18px;
-            margin-top: 26px;
-            border-top: 1px dashed rgba(185, 170, 222, 0.7);
-            font-size: 0.82rem;
-            color: var(--text-muted);
+            color: #C4B5FD;
+        }
+
+        .contact-label {
+            font-weight: 500;
+            color: #E5E7EB;
+        }
+
+        .contact-list a {
+            color: #E5E7EB;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(148, 163, 184, 0.7);
+        }
+
+        .contact-list a:hover {
+            color: #F97316;
+            border-bottom-style: solid;
+        }
+
+        .sidebar-subtitle {
+            margin: 8px 0 4px;
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #9CA3AF;
+        }
+
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 6px 0 10px;
+        }
+
+        .profile-tag {
+            font-size: 0.78rem;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(31, 41, 55, 0.95);
+            color: #E5E7EB;
+            border: 1px solid rgba(75, 85, 99, 0.9);
+        }
+
+        .profile-note {
+            font-size: 0.78rem;
+            color: #9CA3AF;
+            margin-top: 6px;
+        }
+
+        .online-list {
+            list-style: none;
+            padding: 0;
+            margin: 4px 0 0;
+            font-size: 0.86rem;
+        }
+
+        .online-list li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .online-list a {
+            color: #E5E7EB;
+            text-decoration: none;
+        }
+
+        .online-list a:hover {
+            color: #F97316;
+        }
+
+        /* 右侧主内容区块 */
+        .main-column section {
+            margin-bottom: 18px;
+            padding: 16px 16px 18px;
+            border-radius: 18px;
+            background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.26), transparent 60%),
+                        linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.96));
+            border: 1px solid rgba(55, 65, 81, 0.95);
+            box-shadow: 0 18px 32px rgba(15, 23, 42, 0.9);
+            opacity: 0;
+            transform: translateY(6px);
+            animation: fadeInSection 0.4s ease-out forwards;
+        }
+
+        .main-column section:nth-child(2) { animation-delay: 0.06s; }
+        .main-column section:nth-child(3) { animation-delay: 0.12s; }
+        .main-column section:nth-child(4) { animation-delay: 0.18s; }
+
+        @keyframes fadeInSection {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .section-header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 0 0, #FDE68A, #F97316);
+            color: #111827;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #F9FAFB;
+        }
+
+        .section-subtitle-cn {
+            font-size: 0.76rem;
+            color: #9CA3AF;
+        }
+
+        .section-badge {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(31, 41, 55, 0.96);
+            border: 1px solid rgba(75, 85, 99, 0.9);
+            color: #9CA3AF;
+        }
+
+        .main-column p {
+            margin: 0 0 8px;
+            font-size: 0.9rem;
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+
+        .main-column p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-highlight {
+            display: inline-block;
+            padding: 2px 7px;
+            border-radius: 999px;
+            font-size: 0.84rem;
+            background: rgba(15, 23, 42, 0.94);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            color: #E0E7FF;
+        }
+
+        .main-column a {
+            color: #BFDBFE;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(191, 219, 254, 0.8);
+        }
+
+        .main-column a:hover {
+            color: #F97316;
+            border-bottom-style: solid;
+        }
+
+        /* Research tags */
+        .research-tags {
+            list-style: none;
+            padding: 0;
+            margin: 6px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .research-tags li {
+            font-size: 0.78rem;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            color: #E5E7EB;
+        }
+
+        /* 教育时间线 */
+        .timeline {
+            margin-top: 4px;
+            border-left: 1px solid rgba(75, 85, 99, 0.9);
+            padding-left: 12px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 12px;
+            padding-bottom: 2px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -14px;
+            top: 3px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #F9FAFB;
+            box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.45);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-year {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 7px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            color: #E5E7EB;
+            margin-bottom: 2px;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: #E5E7EB;
+        }
+
+        /* Notes 列表 */
+        .notes-list {
+            list-style: none;
+            padding: 0;
+            margin: 4px 0 0;
+            font-size: 0.9rem;
+        }
+
+        .notes-list li {
+            margin-bottom: 8px;
+        }
+
+        .note-label {
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            color: #FBBF24;
+            margin-left: 4px;
+        }
+
+        /* 页脚 */
+        footer {
+            margin-top: 18px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(55, 65, 81, 0.9);
+            font-size: 0.78rem;
+            color: #9CA3AF;
+            text-align: center;
         }
 
         footer span.heart {
-            color: var(--accent-color);
+            color: #F97316;
         }
 
-        /* --- Responsive --- */
-        @media (max-width: 880px) {
-            header {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 16px 22px;
-                border-radius: 18px;
-            }
-
+        /* 响应式 */
+        @media (max-width: 900px) {
             .content-grid {
                 grid-template-columns: 1fr;
-                gap: 22px;
             }
 
-            .sidebar {
-                padding-right: 0;
-                border-right: none;
-                border-bottom: 1px solid var(--border-soft);
-                padding-bottom: 18px;
-            }
-
-            .avatar-circle {
-                width: 70px;
-                height: 70px;
-                font-size: 1.2rem;
-            }
-
-            header {
-                flex-direction: row;
+            .top-nav {
+                justify-content: flex-start;
+                margin-left: 4px;
             }
         }
 
-        @media (max-width: 520px) {
-            header {
+        @media (max-width: 640px) {
+            .glass-panel {
+                padding: 18px 14px 24px;
+                border-radius: 20px;
+            }
+
+            .site-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .tagline-badge {
-                margin-top: 4px;
+            .avatar {
+                width: 68px;
+                height: 68px;
+                border-radius: 20px;
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
-<div class="page-wrap">
-    <div class="container">
-        <header>
-            <div class="avatar-circle">
-                DX
-            </div>
-            <div class="header-main">
-                <h1>David Xiao (肖大维)</h1>
-                <div class="name-sub">he / him</div>
-                <h2>MSc Student in Theoretical High-Energy Physics</h2>
-                <p class="affiliation">Institute for Theoretical Physics, University of Amsterdam (UvA), The Netherlands</p>
-                <div class="tagline-badge">
-                    <i class="fas fa-atom"></i>
-                    Curious about quantum aspects of our universe.
+<div class="bg-orbit"></div>
+
+<div class="page-shell">
+    <div class="glass-panel">
+        <div class="glass-inner">
+
+            <!-- 顶部：头像 + 基本信息 + 导航 -->
+            <header class="site-header">
+                <div class="avatar">
+                    DX
                 </div>
-            </div>
-        </header>
 
-        <main class="content-grid">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <section class="contact-info">
-                    <h3>Contact &amp; Links</h3>
-                    <ul>
-                        <li>
-                            <span class="icon"><i class="fas fa-envelope"></i></span>
-                            <div>
-                                <span class="contact-label">Email (Primary):</span><br>
-                                <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="icon"><i class="fas fa-university"></i></span>
-                            <div>
-                                <span class="contact-label">Email (UvA):</span><br>
-                                <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                            <div>
-                                <span class="contact-label">CV:</span><br>
-                                <a
-                                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/CV_Template__Copy.pdf&embedded=true"
-                                    target="_blank">
-                                    My CV (PDF, viewer)
-                                </a>
-                                <small>
-                                    <a href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/CV_Template__Copy.pdf"
-                                       target="_blank">Direct download</a>
-                                </small>
-                            </div>
-                        </li>
+                <div class="header-main">
+                    <h1>David Xiao (肖大维)</h1>
+                    <div class="header-subline">
+                        <span>he / him</span>
+                        <span class="pronoun-pill">THEORETICAL PHYSICS</span>
+                    </div>
+                    <h2>MSc Student in Theoretical High-Energy Physics</h2>
+                    <p class="affiliation">
+                        Institute for Theoretical Physics, University of Amsterdam (UvA), The Netherlands
+                    </p>
+                    <div class="tagline">
+                        <i class="fas fa-atom"></i>
+                        Thinking about quantum aspects of our universe – especially de Sitter.
+                    </div>
+                </div>
 
-                        <li class="sidebar-divider">Online Profiles</li>
+                <nav class="top-nav">
+                    <a href="#about">About</a>
+                    <a href="#research">Research</a>
+                    <a href="#education">Education</a>
+                    <a href="#notes">Notes</a>
+                </nav>
+            </header>
 
-                        <li>
-                            <span class="icon"><i class="fab fa-stack-exchange"></i></span>
-                            <div>
+            <!-- 主体：左侧 sidebar + 右侧内容 -->
+            <main class="content-grid">
+
+                <!-- 左侧：个人 & 联系方式 -->
+                <aside>
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">
+                            <span class="icon-circle"><i class="fas fa-satellite-dish"></i></span>
+                            Contact & Links
+                        </h3>
+
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <div class="contact-label">Email (Primary)</div>
+                                    <a href="mailto:xiaodawei528@gmail.com">xiaodawei528@gmail.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-university"></i>
+                                <div>
+                                    <div class="contact-label">Email (UvA)</div>
+                                    <a href="mailto:david.xiao@student.uva.nl">david.xiao@student.uva.nl</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-file-pdf"></i>
+                                <div>
+                                    <div class="contact-label">Curriculum Vitae</div>
+                                    <a
+                                        href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/CV_Template__Copy.pdf&embedded=true"
+                                        target="_blank">
+                                        View CV (PDF)
+                                    </a>
+                                    <br>
+                                    <small>
+                                        <a href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/CV_Template__Copy.pdf"
+                                           target="_blank">
+                                            Direct download
+                                        </a>
+                                    </small>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="sidebar-subtitle">PROFILE · 个人标签</div>
+                        <div class="profile-tags">
+                            <span class="profile-tag">Theoretical high-energy</span>
+                            <span class="profile-tag">Quantum cosmology</span>
+                            <span class="profile-tag">dS holography</span>
+                            <span class="profile-tag">Football enjoyer ⚽</span>
+                            <span class="profile-tag">AoE IV player</span>
+                        </div>
+
+                        <p class="profile-note">
+                            Also interested in Japanese Sengoku history & light music (especially Xeuphoria).
+                        </p>
+
+                        <div class="sidebar-subtitle">ONLINE</div>
+                        <ul class="online-list">
+                            <li>
+                                <i class="fab fa-stack-exchange"></i>
                                 <a href="https://physics.stackexchange.com/users/327298/david-shaw" target="_blank">
                                     Physics Stack Exchange
                                 </a>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="icon"><i class="fab fa-zhihu"></i></span>
-                            <div>
-                                <a href="https://www.zhihu.com/people/xiaodawei-42" target="_blank">知乎 · 肖大维</a>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-            </aside>
-
-            <!-- Main Content -->
-            <div class="main-content">
-                <!-- About -->
-                <section class="about">
-                    <h3>
-                        <span class="section-icon"><i class="fas fa-user"></i></span>
-                        About Me
-                    </h3>
-                    <p>
-                        I’m currently a second-year Master’s student in
-                        <span class="highlight-text">Theoretical High-Energy Physics</span>
-                        at the University of Amsterdam. I hold a Master’s degree in Physics from King’s College London
-                        and a Bachelor’s degree in Materials Science and Engineering from QMES, NPU.
-                    </p>
-                    <p>
-                        Outside of physics, I’m into Japanese Sengoku history and football — I’ve supported
-                        Manchester United for years. In my spare time, I enjoy RTS games like <em>Age of Empires IV</em>,
-                        and I often unwind with light music.
-                        <a href="https://www.youtube.com/channel/UC8FpyBnxcUhu_bYmmJ0Yxmw" target="_blank">Xeuphoria</a>
-                        is my favourite composer.
-                    </p>
-                </section>
-
-                <!-- Research -->
-                <section class="research">
-                    <h3>
-                        <span class="section-icon"><i class="fas fa-microscope"></i></span>
-                        Research Interests
-                    </h3>
-                    <p>
-                        My research interests broadly concern the quantum aspects of de Sitter spacetime,
-                        with particular focus on path-integral formulations of quantum cosmology, the role of
-                        the observer, and dS holography proposals.
-                    </p>
-                    <ul class="research-tags">
-                        <li>Quantum aspects of de Sitter</li>
-                        <li>Path-integral quantum cosmology</li>
-                        <li>Observer in cosmology</li>
-                        <li>de Sitter holography</li>
-                    </ul>
-                </section>
-
-                <!-- Education -->
-                <section class="education">
-                    <h3>
-                        <span class="section-icon"><i class="fas fa-graduation-cap"></i></span>
-                        Education
-                    </h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="year">2024 – 2026</span>
-                            <p><strong>MSc in Physics and Astronomy (Theoretical Physics track)</strong></p>
-                            <p>University of Amsterdam (UvA), The Netherlands</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="year">2022 – 2023</span>
-                            <p><strong>MSc in Physics</strong></p>
-                            <p>King's College London (KCL), United Kingdom</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="year">2018 – 2022</span>
-                            <p><strong>BEng, Materials Science and Engineering</strong></p>
-                            <p>NPU/QMUL Joint Program (QMES)</p>
-                        </div>
+                            </li>
+                            <li>
+                                <i class="fab fa-zhihu"></i>
+                                <a href="https://www.zhihu.com/people/xiaodawei-42" target="_blank">
+                                    知乎 · 肖大维
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </section>
+                </aside>
 
-                <!-- Notes & Projects -->
-                <section class="notes-projects">
-                    <h3>
-                        <span class="section-icon"><i class="fas fa-book-open"></i></span>
-                        Notes &amp; Projects
-                    </h3>
-                    <p class="section-subtitle">
-                        Some of my notes are still in draft form; I’m gradually polishing and expanding them.
-                    </p>
-                    <ul class="notes-list">
-                        <li>
-                            <p>
-                                <a
-                                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf&embedded=true"
-                                    target="_blank">
-                                    <strong>Quantum Field Theory Note</strong>
-                                </a>
-                                <span class="note-label">draft</span>
-                                – covering selected topics only.
-                                [
-                                <a
-                                    href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf"
-                                    target="_blank">PDF</a>
-                                ]
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a
-                                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf&embedded=true"
-                                    target="_blank">
-                                    <strong>Newman–Janis Algorithm Notes</strong>
-                                </a>
-                                [
-                                <a
-                                    href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf"
-                                    target="_blank">PDF</a>
-                                ]
-                            </p>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-        </main>
+                <!-- 右侧：正文内容 -->
+                <div class="main-column">
 
-        <footer>
-            <p>
+                    <!-- About -->
+                    <section id="about">
+                        <div class="section-header">
+                            <div class="section-header-left">
+                                <div class="section-icon"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <h3 class="section-title">About Me</h3>
+                                    <div class="section-subtitle-cn">关于我</div>
+                                </div>
+                            </div>
+                            <span class="section-badge">MSc @ UvA</span>
+                        </div>
+
+                        <p>
+                            I’m currently a second-year Master’s student in
+                            <span class="inline-highlight">Theoretical High-Energy Physics</span>
+                            at the University of Amsterdam. I hold a Master’s degree in Physics from King’s College London
+                            and a Bachelor’s degree in Materials Science and Engineering from QMES, NPU.
+                        </p>
+                        <p>
+                            Outside of physics, I have an interest in Japanese Sengoku history. I’m also a passionate
+                            football fan and have supported Manchester United for years. In my free time, I enjoy
+                            playing RTS games like <em>Age of Empires IV</em>, and I often unwind by listening to light music —
+                            <a href="https://www.youtube.com/channel/UC8FpyBnxcUhu_bYmmJ0Yxmw" target="_blank">Xeuphoria</a>
+                            is my favourite composer.
+                        </p>
+                    </section>
+
+                    <!-- Research -->
+                    <section id="research">
+                        <div class="section-header">
+                            <div class="section-header-left">
+                                <div class="section-icon"><i class="fas fa-microscope"></i></div>
+                                <div>
+                                    <h3 class="section-title">Research Interests</h3>
+                                    <div class="section-subtitle-cn">研究方向</div>
+                                </div>
+                            </div>
+                            <span class="section-badge">de Sitter & quantum cosmology</span>
+                        </div>
+
+                        <p>
+                            My research interests broadly concern the quantum aspects of de Sitter spacetime,
+                            with particular focus on the path-integral formulations of quantum cosmology,
+                            the role of the observer, and dS holography proposals.
+                        </p>
+
+                        <ul class="research-tags">
+                            <li>Quantum aspects of de Sitter spacetime</li>
+                            <li>Path-integral approaches to quantum cosmology</li>
+                            <li>Role of the observer in cosmology</li>
+                            <li>de Sitter holography proposals</li>
+                        </ul>
+                    </section>
+
+                    <!-- Education -->
+                    <section id="education">
+                        <div class="section-header">
+                            <div class="section-header-left">
+                                <div class="section-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div>
+                                    <h3 class="section-title">Education</h3>
+                                    <div class="section-subtitle-cn">教育背景</div>
+                                </div>
+                            </div>
+                            <span class="section-badge">Timeline</span>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">2024 – 2026</div>
+                                <p><strong>MSc in Physics and Astronomy (Theoretical Physics track)</strong></p>
+                                <p>University of Amsterdam (UvA), The Netherlands</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2022 – 2023</div>
+                                <p><strong>MSc in Physics</strong></p>
+                                <p>King's College London (KCL), United Kingdom</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2018 – 2022</div>
+                                <p><strong>BEng, Materials Science and Engineering</strong></p>
+                                <p>NPU/QMUL Joint Program (QMES)</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Notes & Projects -->
+                    <section id="notes">
+                        <div class="section-header">
+                            <div class="section-header-left">
+                                <div class="section-icon"><i class="fas fa-book-open"></i></div>
+                                <div>
+                                    <h3 class="section-title">Notes & Projects</h3>
+                                    <div class="section-subtitle-cn">笔记与项目</div>
+                                </div>
+                            </div>
+                            <span class="section-badge">Work in progress</span>
+                        </div>
+
+                        <p>
+                            Some of my notes are still in draft form; I’m gradually polishing and expanding them.
+                        </p>
+
+                        <ul class="notes-list">
+                            <li>
+                                <p>
+                                    <a
+                                        href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf&embedded=true"
+                                        target="_blank">
+                                        <strong>Quantum Field Theory Note</strong>
+                                    </a>
+                                    <span class="note-label">draft</span>
+                                    – covering only selected topics.
+                                    [
+                                    <a
+                                        href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/qft_note%20(1).pdf"
+                                        target="_blank">
+                                        PDF
+                                    </a>
+                                    ]
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <a
+                                        href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf&embedded=true"
+                                        target="_blank">
+                                        <strong>Newman–Janis Algorithm Notes</strong>
+                                    </a>
+                                    [
+                                    <a
+                                        href="https://raw.githubusercontent.com/daweixiao528/daweixiao528.github.io/main/Note_on_Newman_Janis_algorithm.pdf"
+                                        target="_blank">
+                                        PDF
+                                    </a>
+                                    ]
+                                </p>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </main>
+
+            <footer>
                 &copy; 2025 Dawei Xiao. All rights reserved.
                 <br>
                 Built with a bit of LaTeX energy and a bit of <span class="heart">♥</span>.
-            </p>
-        </footer>
+            </footer>
+        </div>
     </div>
 </div>
 </body>
