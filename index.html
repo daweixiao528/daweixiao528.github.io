@@ -38,6 +38,19 @@
             min-height: 100vh;
         }
 
+        /* ==== 文字高亮小工具类 ==== */
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .text-soft {
+            color: #FBBF24; /* 柔一点的黄色 */
+        }
+
         /* 背景装饰 */
         .bg-layers {
             position: fixed;
@@ -576,13 +589,13 @@
             </div>
 
             <div class="hero-meta">
-                <strong>MSc student in Theoretical High-Energy Physics</strong><br>
+                <strong>MSc student in <span class="text-primary">Theoretical High-Energy Physics</span></strong><br>
                 University of Amsterdam (UvA), The Netherlands
             </div>
 
-            <!-- 这里改成 本科工程 → 伦敦物理 → 现在阿姆斯特丹 -->
+            <!-- 本科工程 → 伦敦物理 → 现在阿姆斯特丹，加一点颜色 -->
             <div class="hero-text">
-                I did my undergraduate studies in engineering in a joint NPU/QMUL programme. Along the way, I realised I was more drawn to fundamental questions than to engineering practice, so I moved to London to study physics. I am now a second-year MSc student in the theoretical physics track at UvA in Amsterdam.
+                I did my undergraduate studies in <span class="text-primary">engineering</span> in a joint NPU/QMUL programme. Along the way, I realised I was more drawn to <span class="text-soft">fundamental questions</span> than to engineering practice, so I moved to <span class="text-accent">London</span> to study physics. I am now a second-year MSc student in the <span class="text-primary">theoretical physics track</span> at UvA in <span class="text-accent">Amsterdam</span>.
             </div>
         </div>
 
@@ -634,17 +647,17 @@
     <section class="sections">
         <!-- 左列：About me + research -->
         <div class="sections-column">
-            <!-- About me（原来的 now 改名 + 内容替换） -->
+            <!-- About me -->
             <article class="block" id="now">
                 <div class="block-header">
                     <h2 class="block-title">About me</h2>
                     <span class="block-tag">Amsterdam · 2024–2026</span>
                 </div>
                 <p>
-                    My academic interests lie in the quantum aspects of our universe, mainly in the formal theory of de&nbsp;Sitter spacetime and related questions in quantum field theory and gravity.
+                    My academic interests lie in the <span class="text-primary">quantum aspects of our universe</span>, mainly in the <span class="text-soft">formal theory of de&nbsp;Sitter spacetime</span> and related questions in quantum field theory and gravity.
                 </p>
                 <p>
-                    Outside of physics, I enjoy light and synth music (often Xeuphoria), playing RTS games such as Age of Empires&nbsp;IV, and playing football as an amateur. I’ve been a Manchester United fan since I was 13, and I’m also a beginner exploring theoretical neuroscience.
+                    Outside of physics, I enjoy light and synth music (often <span class="text-primary">Xeuphoria</span>), playing RTS games such as <span class="text-soft">Age of Empires&nbsp;IV</span>, and playing football as an amateur. I’ve been a <span class="text-accent">Manchester United</span> fan since I was 13, and I’m also a beginner exploring <span class="text-primary">theoretical neuroscience</span>.
                 </p>
             </article>
 
@@ -655,14 +668,14 @@
                     <span class="block-tag">mostly de Sitter</span>
                 </div>
                 <p>
-                    Broadly speaking, I’m interested in the <strong>quantum aspects of de&nbsp;Sitter spacetime</strong>.
+                    Broadly speaking, I’m interested in the <strong class="text-primary">quantum aspects of de&nbsp;Sitter spacetime</strong>.
                     More concretely, I’m interested in:
                 </p>
                 <p>
                     – Path-integral formulations of quantum cosmology<br>
                     – The role of the observer in the semiclassical limit<br>
                     – The no-boundary wavefunction of the universe<br>
-                    – de&nbsp;Sitter holography proposals
+                    – <span class="text-soft">de&nbsp;Sitter holography</span> proposals
                 </p>
 
                 <div class="chips">
